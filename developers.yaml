@@ -1,0 +1,90 @@
+poms:
+  com_timeliassoeren_password-checker-1.10.2-RELEASE.pom:
+    scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
+    developers:
+    - name: Sören Baumann
+      id: baumann-bechtle
+      email: soeren@bettercallsoeren.com
+      url: https://bettercallsoeren.com
+    - name: Tim Schmelz
+      id: tims1306
+      email: tim.schmelz.24@heilbronn.dhbw.de
+      url: N/A
+    - name: Elias Mögerle
+      id: Elias10115
+      email: elias.moegerle@gmail.com
+      url: N/A
+  com_diepoe_securitease-1.0.1-PRERELEASE.pom:
+    scmUrl: https://github.com/diepoe/SecuriTease
+    developers:
+    - name: Dietrich Poensgen
+      id: diepoe
+      email: die.poensgen.24@heilbronn.dhbw.de
+      url: https://github.com/diepoe
+    - name: Mikail Mert Demirel
+      id: dmrmika
+      email: mik.demirel.24@heilbronn.dhbw.de
+      url: https://github.com/dmrmika
+  simple-project-1.0-20241023.130710-1.pom:
+    scmUrl: N/A
+    developers: &id001 [
+      ]
+  cryptique-2.0.0-20241121.172449-1.pom:
+    scmUrl: https://github.com/JoFitTech/Cryptique
+    developers:
+    - name: Josef Lautner
+      id: JoFitTech
+      email: jos.lautner24@heiblronn.dhbw.de
+      url: https://github.com/jofittech
+    - name: Luis Schirmbeck
+      id: 0ezzi
+      email: luis.schirmbeck@gmail.com
+      url: https://github.com/0ezzi
+    - name: Kim Reger
+      id: KimReg
+      email: kim@reger1.de
+      url: https://github.com/KimReg
+  password-validator-1.0-20241117.211427-1.pom:
+    scmUrl: N/A
+    developers: *id001
+  lefortknox-2.0-20241120.145715-3.pom:
+    scmUrl: N/A
+    developers:
+    - name: Niklas Ulbrich
+      id: niklas3852
+      email: niklas-ulbrich@web.de
+      url: N/A
+    - name: Raphael Buller
+      id: Raqhael
+      email: raphael.buller8@gmail.com
+      url: N/A
+  sonatesecure-1.0-20241120.144028-1.pom:
+    scmUrl: N/A
+    developers: *id001
+  length-password-validator-1.1-20241120.133437-1.pom:
+    scmUrl: https://github.com/athenaeum-brew/maven-repo/packages/2319203
+    developers:
+    - name: Daniel Schklar
+      id: dschklar
+      email: dhbw@schklar.de
+      url: N/A
+    - name: Luis Zipse
+      id: TypeWolf
+      email: lui.zipse.24@heilbronn.dhbw.de
+      url: N/A
+  password_validator-1.0-20241121.093633-2.pom:
+    scmUrl: https://github.com/ITine-Tech/password_validator
+    developers:
+    - name: Christine Gundel
+      id: ITine_Tech
+      email: gundelc@gmail.com
+      url: N/A
+    - name: Tina Ranft
+      id: Tina241104
+      email: tina-ranft@web.de
+      url: N/A
+    - name: Celine Hager
+      id: celine250108
+      email: hceline2501@gmail.com
+      url: N/A
+totalDevelopers: 15

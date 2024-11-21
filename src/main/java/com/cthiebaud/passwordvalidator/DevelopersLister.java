@@ -1,6 +1,9 @@
 package com.cthiebaud.passwordvalidator;
 
 import org.w3c.dom.*;
+import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.Yaml;
+
 import javax.xml.parsers.*;
 import java.io.File;
 import java.io.FileWriter;
@@ -42,7 +45,8 @@ public class DevelopersLister {
         }
 
         // Write developers and SCM URL to a structured text file
-        writePomInfoToStructuredTextFile(pomInfoByFile, "developers.txt");
+        // writePomInfoToStructuredTextFile(pomInfoByFile, "developers.txt");
+        writePomInfoToYamlFile(pomInfoByFile, "developers.yaml");
     }
 
     // Parse the POM file to extract developer information
@@ -109,38 +113,51 @@ public class DevelopersLister {
         return null;
     }
 
-    // Write developers and SCM URL to a structured text file
-    public static void writePomInfoToStructuredTextFile(Map<String, PomInfo> pomInfoByFile, String outputPath) {
+    public static void writePomInfoToYamlFile(Map<String, PomInfo> pomInfoByFile, String outputPath) {
+        // Prepare YAML configuration
+        DumperOptions options = new DumperOptions();
+        options.setPrettyFlow(true);
+        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+
+        Yaml yaml = new Yaml(options);
+
+        // Prepare the data structure for YAML
+        Map<String, Object> yamlData = new HashMap<>();
+        yamlData.put("totalDevelopers", pomInfoByFile.values().stream()
+                .mapToInt(info -> info.developers().size())
+                .sum());
+
+        Map<String, Object> pomEntries = new HashMap<>();
+        for (Map.Entry<String, PomInfo> entry : pomInfoByFile.entrySet()) {
+            String pomFile = entry.getKey();
+            PomInfo info = entry.getValue();
+
+            Map<String, Object> pomDetails = new HashMap<>();
+            pomDetails.put("scmUrl", info.scmUrl() != null ? info.scmUrl() : "N/A");
+
+            List<Map<String, String>> developers = info.developers().stream()
+                    .map(dev -> {
+                        Map<String, String> devDetails = new HashMap<>();
+                        devDetails.put("id", dev.id() != null ? dev.id() : "N/A");
+                        devDetails.put("name", dev.name() != null ? dev.name() : "N/A");
+                        devDetails.put("email", dev.email() != null ? dev.email() : "N/A");
+                        devDetails.put("url", dev.url() != null ? dev.url() : "N/A");
+                        return devDetails;
+                    })
+                    .toList();
+            pomDetails.put("developers", developers);
+
+            pomEntries.put(pomFile, pomDetails);
+        }
+
+        yamlData.put("poms", pomEntries);
+
+        // Write YAML to file
         try (FileWriter writer = new FileWriter(outputPath)) {
-            // Calculate total developers
-            int totalDevelopers = pomInfoByFile.values().stream()
-                    .mapToInt(info -> info.developers().size()).sum();
-
-            // Write the header with the total number of developers
-            writer.write("Total Developers: " + totalDevelopers + "\n");
-            writer.write("========================\n");
-
-            // Write developers and SCM URL grouped by POM file
-            for (Map.Entry<String, PomInfo> entry : pomInfoByFile.entrySet()) {
-                String pomFile = entry.getKey();
-                PomInfo info = entry.getValue();
-
-                writer.write("POM File: " + pomFile + "\n");
-                writer.write("SCM URL: " + (info.scmUrl() != null ? info.scmUrl() : "N/A") + "\n");
-
-                for (Developer dev : info.developers()) {
-                    writer.write("    ------------------------\n");
-                    writer.write("    ID: " + (dev.id() != null ? dev.id() : "N/A") + "\n");
-                    writer.write("    Name: " + (dev.name() != null ? dev.name() : "N/A") + "\n");
-                    writer.write("    Email: " + (dev.email() != null ? dev.email() : "N/A") + "\n");
-                    writer.write("    URL: " + (dev.url() != null ? dev.url() : "N/A") + "\n");
-                }
-                writer.write("------------------------\n");
-            }
-
-            System.out.println("Developers and SCM URLs written to structured text file: " + outputPath);
+            yaml.dump(yamlData, writer);
+            System.out.println("Developers and SCM URLs written to YAML file: " + outputPath);
         } catch (IOException e) {
-            System.out.println("Error writing to text file.");
+            System.out.println("Error writing to YAML file.");
             e.printStackTrace();
         }
     }
