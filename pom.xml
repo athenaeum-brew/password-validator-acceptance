@@ -11,6 +11,13 @@
 
     <name>password-validator-acceptance</name>
 
+    <distributionManagement>
+        <repository>
+            <id>github-repo</id>
+            <url>https://maven.pkg.github.com/athenaeum-brew/maven-repo</url>
+        </repository>
+    </distributionManagement>
+    
     <repositories>
         <repository>
             <id>github-repo</id>
