@@ -18,7 +18,7 @@ public class DevelopersLister {
 
         // Get the list of all .pom files in the directory
         File pomDir = new File(pomDirPath);
-        File[] pomFiles = pomDir.listFiles((dir, name) -> name.endsWith(".pom"));
+        File[] pomFiles = pomDir.listFiles((_, name) -> name.endsWith(".pom"));
 
         if (pomFiles == null || pomFiles.length == 0) {
             System.out.println("No .pom files found in the directory.");
