@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class GitHubPackagesLister {
+
     public static void main(String[] args) throws Exception {
         // Load the GitHub token from a file in src/main/resources
         String tokenFilePath = "src/main/resources/github-token.txt";

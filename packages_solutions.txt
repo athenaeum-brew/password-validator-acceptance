@@ -1,0 +1,34 @@
+chrisceltin:password_validator:1.0-SNAPSHOT
+OK
+Catqwe1
+
+com.diepoe:securitease:1.0.1-PRERELEASE
+OK
+XIII_XXIX_italy_bach_310_42
+
+com.jofittech:cryptique:2.0.0-SNAPSHOT
+Exception in thread "main" java.lang.NoClassDefFoundError: com/vaadin/flow/component/html/Div
+20TheBeatles23_11Albrandt - NO WAY !!!
+
+com.kevalbra:sonatesecure:1.0-SNAPSHOT
+OK
+123QWEcthiebaud¶#@
+
+com.niklas3852:lefortknox:2.0-SNAPSHOT
+OK
+qweasdzxc
+
+com.thomxs1:password-validator-main:1.0.0-SNAPSHOT
+OK
+123!"£QWEasdWerderBremenChampionKim
+
+com.timeliassoeren:password-checker:1.10.2-RELEASE
+OK
+46QWEasd¶#@
+
+com.timo:password-validator:1.0-SNAPSHOT
+Error: Expected exactly one implementation of PasswordValidator, found: 0
+
+com.zipse:length-password-validator:1.1-SNAPSHOT
+Error playing sound: password-validator\src\sounds\unsecure.wav (No such file or directory)
+
