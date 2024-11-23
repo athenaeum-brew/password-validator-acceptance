@@ -1,6 +1,5 @@
 com.cthiebaud:password-validator:1.0.0-SNAPSHOT
 com.cthiebaud:password-validator-impl:1.0.0-SNAPSHOT
-com.diepoe:simple-project:1.0-SNAPSHOT
 chrisceltin:password_validator:1.0-SNAPSHOT
 com.timo:password-validator:1.0-SNAPSHOT
 com.niklas3852:lefortknox:2.0-SNAPSHOT
@@ -10,3 +9,4 @@ com.jofittech:cryptique:2.0.0-SNAPSHOT
 com.diepoe:securitease:1.0.1-PRERELEASE
 com.timeliassoeren:password-checker:1.10.2-RELEASE
 com.kevalbra:sonatesecure:1.0-SNAPSHOT
+com.cthiebaud:password-validator-acceptance:1.0.0-SNAPSHOT

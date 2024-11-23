@@ -56,36 +56,21 @@ while IFS= read -r package; do
         resolvedVersion=$version
     fi
 
-    # Convert groupId to underscore-separated format
-    formattedGroupId="${groupId//./_}"
-
-    # Construct custom file names
-    jarFileName="${formattedGroupId}_${artifactId}-${resolvedVersion}.jar"
-    pomFileName="${formattedGroupId}_${artifactId}-${resolvedVersion}.pom"
-
     # Use Maven dependency:copy to download JAR
     mvn dependency:copy \
         -U \
-        -Dartifact="$groupId:$artifactId:$resolvedVersion" \
+        -Dartifact="$groupId:$artifactId:$resolvedVersion:jar" \
+        -Dmdep.prependGroupId=true \
         -DoutputDirectory="$OUTPUT_DIR" \
         -Drepositories="github-repo::default::https://maven.pkg.github.com/athenaeum-brew"
-
-    # Rename the downloaded JAR file
-    if [[ -f "$OUTPUT_DIR/$artifactId-$resolvedVersion.jar" ]]; then
-        mv "$OUTPUT_DIR/$artifactId-$resolvedVersion.jar" "$OUTPUT_DIR/$jarFileName"
-    fi
 
     # Use Maven dependency:copy to download POM
     mvn -q dependency:copy \
         -U \
         -Dartifact="$groupId:$artifactId:$resolvedVersion:pom" \
+        -Dmdep.prependGroupId=true \
         -DoutputDirectory="$OUTPUT_DIR" \
         -Drepositories="github-repo::default::https://maven.pkg.github.com/athenaeum-brew"
-
-    # Rename the downloaded POM file
-    if [[ -f "$OUTPUT_DIR/$artifactId-$resolvedVersion.pom" ]]; then
-        mv "$OUTPUT_DIR/$artifactId-$resolvedVersion.pom" "$OUTPUT_DIR/$pomFileName"
-    fi
 
 done < "$PACKAGE_FILE"
 

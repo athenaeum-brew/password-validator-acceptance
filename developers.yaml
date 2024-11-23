@@ -1,5 +1,24 @@
 poms:
-  com_timeliassoeren_password-checker-1.10.2-RELEASE.pom:
+  chrisceltin.password_validator-1.0-20241122.120728-4.pom:
+    scmUrl: https://github.com/athenaeum-brew/password-validator-impl
+    developers:
+    - name: Christine Gundel
+      id: ITine_Tech
+      email: gundelc@gmail.com
+      url: N/A
+    - name: Tina Ranft
+      id: Tina241104
+      email: tina-ranft@web.de
+      url: N/A
+    - name: Celine Hager
+      id: celine250108
+      email: hceline2501@gmail.com
+      url: N/A
+  com.kevalbra.sonatesecure-1.0-20241120.144028-1.pom:
+    scmUrl: N/A
+    developers: &id001 [
+      ]
+  com.timeliassoeren.password-checker-1.10.2-RELEASE.pom:
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
     - name: Sören Baumann
@@ -14,22 +33,18 @@ poms:
       id: Elias10115
       email: elias.moegerle@gmail.com
       url: N/A
-  com_diepoe_securitease-1.0.1-PRERELEASE.pom:
-    scmUrl: https://github.com/diepoe/SecuriTease
-    developers:
-    - name: Dietrich Poensgen
-      id: diepoe
-      email: die.poensgen.24@heilbronn.dhbw.de
-      url: https://github.com/diepoe
-    - name: Mikail Mert Demirel
-      id: dmrmika
-      email: mik.demirel.24@heilbronn.dhbw.de
-      url: https://github.com/dmrmika
-  simple-project-1.0-20241023.130710-1.pom:
+  com.niklas3852.lefortknox-2.0-20241120.145715-3.pom:
     scmUrl: N/A
-    developers: &id001 [
-      ]
-  cryptique-2.0.0-20241121.172449-1.pom:
+    developers:
+    - name: Niklas Ulbrich
+      id: niklas3852
+      email: niklas-ulbrich@web.de
+      url: N/A
+    - name: Raphael Buller
+      id: Raqhael
+      email: raphael.buller8@gmail.com
+      url: N/A
+  com.jofittech.cryptique-2.0.0-20241121.172449-1.pom:
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
     - name: Josef Lautner
@@ -44,24 +59,21 @@ poms:
       id: KimReg
       email: kim@reger1.de
       url: https://github.com/KimReg
-  password-validator-1.0-20241117.211427-1.pom:
+  com.timo.password-validator-1.0-20241117.211427-1.pom:
     scmUrl: N/A
     developers: *id001
-  lefortknox-2.0-20241120.145715-3.pom:
-    scmUrl: N/A
+  com.diepoe.securitease-1.0.1-PRERELEASE.pom:
+    scmUrl: https://github.com/diepoe/SecuriTease
     developers:
-    - name: Niklas Ulbrich
-      id: niklas3852
-      email: niklas-ulbrich@web.de
-      url: N/A
-    - name: Raphael Buller
-      id: Raqhael
-      email: raphael.buller8@gmail.com
-      url: N/A
-  sonatesecure-1.0-20241120.144028-1.pom:
-    scmUrl: N/A
-    developers: *id001
-  length-password-validator-1.1-20241120.133437-1.pom:
+    - name: Dietrich Poensgen
+      id: diepoe
+      email: die.poensgen.24@heilbronn.dhbw.de
+      url: https://github.com/diepoe
+    - name: Mikail Mert Demirel
+      id: dmrmika
+      email: mik.demirel.24@heilbronn.dhbw.de
+      url: https://github.com/dmrmika
+  com.zipse.length-password-validator-1.1-20241120.133437-1.pom:
     scmUrl: https://github.com/athenaeum-brew/maven-repo/packages/2319203
     developers:
     - name: Daniel Schklar
@@ -71,20 +83,5 @@ poms:
     - name: Luis Zipse
       id: TypeWolf
       email: lui.zipse.24@heilbronn.dhbw.de
-      url: N/A
-  password_validator-1.0-20241121.093633-2.pom:
-    scmUrl: https://github.com/ITine-Tech/password_validator
-    developers:
-    - name: Christine Gundel
-      id: ITine_Tech
-      email: gundelc@gmail.com
-      url: N/A
-    - name: Tina Ranft
-      id: Tina241104
-      email: tina-ranft@web.de
-      url: N/A
-    - name: Celine Hager
-      id: celine250108
-      email: hceline2501@gmail.com
       url: N/A
 totalDevelopers: 15
