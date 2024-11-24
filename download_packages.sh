@@ -12,6 +12,24 @@ echo "Cleaning the output directory: $OUTPUT_DIR"
 rm -rf "$OUTPUT_DIR"/* 2>/dev/null || true
 mkdir -p "$OUTPUT_DIR"
 
+# Path to the GitHub token file
+TOKEN_FILE="src/main/resources/github-token.txt"
+
+# Check if the token file exists
+if [[ ! -f $TOKEN_FILE ]]; then
+    echo "Error: Token file not found at $TOKEN_FILE"
+    exit 1
+fi
+
+# Read the token from the file
+GITHUB_PAT=$(<"$TOKEN_FILE")
+
+# Check if the token is non-empty
+if [[ -z $GITHUB_PAT ]]; then
+    echo "Error: Token file is empty"
+    exit 1
+fi
+
 resolve_snapshot_version() {
     local groupId=$1
     local artifactId=$2
@@ -20,10 +38,13 @@ resolve_snapshot_version() {
 
     # Convert groupId to folder structure
     local groupPath="${groupId//.//}"
-    local metadataUrl="${repoUrl}/${groupPath}/${artifactId}/${version}/maven-metadata.xml"
+    local metadataUrl="${repoUrl}/boh/${groupPath}/${artifactId}/${version}/maven-metadata.xml"
+
 
     # Fetch maven-metadata.xml
-    local metadata=$(curl -s "$metadataUrl")
+    # echo "Fetch maven-metadata.xml from $metadataUrl" >&2
+    local metadata=$(curl -u "cthiebaud:$GITHUB_PAT" -s "$metadataUrl")
+    # echo "$metadata" >&2
 
     # Extract timestamp and buildNumber using grep and sed
     local timestamp=$(echo "$metadata" | grep -o "<timestamp>[^<]*" | sed 's/<timestamp>//')
@@ -33,6 +54,7 @@ resolve_snapshot_version() {
     if [[ -n $timestamp && -n $buildNumber ]]; then
         echo "${version%-SNAPSHOT}-${timestamp}-${buildNumber}"
     else
+        echo "Warning: Unable to resolve timestamped version for $groupId:$artifactId:$version from $metadata. Falling back to base version: $version" >&2
         echo "$version" # Fallback to base version if metadata is incomplete
     fi
 }
@@ -59,8 +81,9 @@ while IFS= read -r package; do
     # Use Maven dependency:copy to download JAR
     mvn dependency:copy \
         -U \
-        -Dartifact="$groupId:$artifactId:$resolvedVersion:jar" \
+        -Dartifact="$groupId:$artifactId:$resolvedVersion" \
         -Dmdep.prependGroupId=true \
+        -Dmdep.useBaseVersion=false \
         -DoutputDirectory="$OUTPUT_DIR" \
         -Drepositories="github-repo::default::https://maven.pkg.github.com/athenaeum-brew"
 
@@ -69,6 +92,7 @@ while IFS= read -r package; do
         -U \
         -Dartifact="$groupId:$artifactId:$resolvedVersion:pom" \
         -Dmdep.prependGroupId=true \
+        -Dmdep.useBaseVersion=false \
         -DoutputDirectory="$OUTPUT_DIR" \
         -Drepositories="github-repo::default::https://maven.pkg.github.com/athenaeum-brew"
 

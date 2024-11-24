@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class DevelopersLister {
+public class MetadataExtractor {
 
     public static void main(String[] args) {
         // Directory containing the POM files
@@ -25,28 +27,58 @@ public class DevelopersLister {
             return;
         }
 
-        // Map to store developers and SCM URL grouped by their POM file
+        // Map to store developers, SCM URL, and version grouped by their artifact ID
         Map<String, PomInfo> pomInfoByFile = new LinkedHashMap<>();
 
         // Process each .pom file
         for (File pomFile : pomFiles) {
             System.out.println("Processing: " + pomFile.getName());
             try {
+                // Extract artifact ID and version from the POM file name
+                String artifactId = extractArtifactIdFromFileName(pomFile.getName());
+                String version = extractVersionFromFileName(pomFile.getName());
+
                 // Parse the POM file for developers and SCM URL
                 List<Developer> developers = parsePOMForDevelopers(pomFile);
                 String scmUrl = parsePOMForScmUrl(pomFile);
 
-                // Store the POM information
-                pomInfoByFile.put(pomFile.getName(), new PomInfo(developers, scmUrl));
+                // Store the POM information using artifact ID as the key
+                pomInfoByFile.put(artifactId, new PomInfo(developers, scmUrl, version));
             } catch (Exception e) {
                 System.out.println("Error processing file: " + pomFile.getName());
                 e.printStackTrace();
             }
         }
 
-        // Write developers and SCM URL to a structured text file
-        // writePomInfoToStructuredTextFile(pomInfoByFile, "developers.txt");
-        writePomInfoToYamlFile(pomInfoByFile, "developers.yaml");
+        // Write developers, SCM URL, and version to a structured text file
+        writePomInfoToYamlFile(pomInfoByFile, "packages_metadata.yaml");
+    }
+
+    // Extract artifact ID (base name without version or extension) from the POM
+    // file name
+    public static String extractArtifactIdFromFileName(String fileName) {
+        // Regex pattern to match the artifact ID
+        Pattern pattern = Pattern.compile("^(.*?)-\\d+\\.\\d+(\\.\\d+)?(?:-[A-Za-z0-9.-]+)?\\.pom$");
+        Matcher matcher = pattern.matcher(fileName);
+
+        if (matcher.find()) {
+            return matcher.group(1); // Return the artifact ID (base name)
+        }
+
+        return fileName.replace(".pom", ""); // Fallback to removing the extension
+    }
+
+    // Extract version from the POM file name
+    public static String extractVersionFromFileName(String fileName) {
+        // Regex pattern to match the version in the file name
+        Pattern pattern = Pattern.compile("-(\\d+\\.\\d+(\\.\\d+)?(?:-[A-Za-z0-9.-]+)?)\\.pom$");
+        Matcher matcher = pattern.matcher(fileName);
+
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+
+        return "Unknown"; // Return "Unknown" if the version can't be determined
     }
 
     // Parse the POM file to extract developer information
@@ -129,11 +161,12 @@ public class DevelopersLister {
 
         Map<String, Object> pomEntries = new HashMap<>();
         for (Map.Entry<String, PomInfo> entry : pomInfoByFile.entrySet()) {
-            String pomFile = entry.getKey();
+            String artifactId = entry.getKey();
             PomInfo info = entry.getValue();
 
             Map<String, Object> pomDetails = new HashMap<>();
             pomDetails.put("scmUrl", info.scmUrl() != null ? info.scmUrl() : "N/A");
+            pomDetails.put("version", info.version() != null ? info.version() : "Unknown");
 
             List<Map<String, String>> developers = info.developers().stream()
                     .map(dev -> {
@@ -147,7 +180,7 @@ public class DevelopersLister {
                     .toList();
             pomDetails.put("developers", developers);
 
-            pomEntries.put(pomFile, pomDetails);
+            pomEntries.put(artifactId, pomDetails);
         }
 
         yamlData.put("poms", pomEntries);
@@ -155,7 +188,7 @@ public class DevelopersLister {
         // Write YAML to file
         try (FileWriter writer = new FileWriter(outputPath)) {
             yaml.dump(yamlData, writer);
-            System.out.println("Developers and SCM URLs written to YAML file: " + outputPath);
+            System.out.println("Metadata written to YAML file: " + outputPath);
         } catch (IOException e) {
             System.out.println("Error writing to YAML file.");
             e.printStackTrace();
@@ -167,6 +200,6 @@ public class DevelopersLister {
     }
 
     // Record for storing POM information
-    public record PomInfo(List<Developer> developers, String scmUrl) {
+    public record PomInfo(List<Developer> developers, String scmUrl, String version) {
     }
 }
