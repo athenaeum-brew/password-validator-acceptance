@@ -1,13 +1,41 @@
 poms:
+  org.NBITPROJECT.bouncer:
+    scmUrl: https://github.com/NB-IT-Project/Bouncer
+    developers:
+    - name: Nils Berggold
+      id: NB-IT-Project
+      email: nberggold@gmail.com
+      url: N/A
+    - name: Marios Zoumpulakis
+      id: shiro-edoc
+      email: machine_code@outlook.com
+      url: N/A
+    - name: Niklas Mumm
+      id: nikmumm
+      email: nikmumm@gmail.com
+      url: N/A
+    version: 1.0-20241125.134746-1
   com.kevalbra.sonatesecure:
     scmUrl: N/A
-    developers: &id001 [
+    developers: [
       ]
     version: 1.0-20241120.144028-1
   com.timo.password-validator:
-    scmUrl: N/A
-    developers: *id001
-    version: 1.0-20241117.211427-1
+    scmUrl: https://github.com/JunoGT/password-validator
+    developers:
+    - name: Timo Gerlinger
+      id: JunoGT
+      email: tim.gerlinger.24@heilbronn.dhbw.de
+      url: N/A
+    - name: Justus Krahl
+      id: xJvstvs
+      email: jus.krahl.24@heilbronn.dhbw.de
+      url: N/A
+    - name: Matthis Kollmann
+      id: Matthis404
+      email: mat.kollmann.24@heilbronn.dhbw.de
+      url: N/A
+    version: 1.0.1-20241125.121638-1
   com.jofittech.cryptique:
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
@@ -23,7 +51,7 @@ poms:
       id: KimReg
       email: kim@reger1.de
       url: https://github.com/KimReg
-    version: 1.0-20241120.134336-2
+    version: 1.0-20241125.135724-5
   chrisceltin.password_validator:
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
@@ -108,4 +136,4 @@ poms:
       email: raphael.buller8@gmail.com
       url: N/A
     version: 2.0-20241120.145715-3
-totalDevelopers: 18
+totalDevelopers: 24
