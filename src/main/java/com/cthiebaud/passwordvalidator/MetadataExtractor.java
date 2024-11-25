@@ -30,19 +30,40 @@ public class MetadataExtractor {
         // Map to store developers, SCM URL, and version grouped by their artifact ID
         Map<String, PomInfo> pomInfoByFile = new LinkedHashMap<>();
 
+        // Map to track developers across projects
+        Map<String, String> developerToProjectMap = new HashMap<>();
+
+        // ANSI escape code for orange (bright yellow)
+        final String ORANGE = "\u001B[33m"; // Bright yellow color
+        final String RESET = "\u001B[0m"; // Reset to default console color
+
         // Process each .pom file
         for (File pomFile : pomFiles) {
             System.out.println("Processing: " + pomFile.getName());
             try {
-                // Extract artifact ID and version from the POM file name
+                // Extract artifact ID and version
                 String artifactId = extractArtifactIdFromFileName(pomFile.getName());
                 String version = extractVersionFromFileName(pomFile.getName());
 
-                // Parse the POM file for developers and SCM URL
+                // Parse the POM file
                 List<Developer> developers = parsePOMForDevelopers(pomFile);
                 String scmUrl = parsePOMForScmUrl(pomFile);
 
-                // Store the POM information using artifact ID as the key
+                // Check for duplicate developers across projects
+                for (Developer developer : developers) {
+                    String uniqueKey = developer.id() != null ? developer.id() : developer.email();
+                    if (uniqueKey != null && developerToProjectMap.containsKey(uniqueKey)) {
+                        String existingProject = developerToProjectMap.get(uniqueKey);
+                        System.out.printf(
+                                ORANGE + "Warning: Developer %s (ID: %s) appears in multiple projects: %s and %s%n"
+                                        + RESET,
+                                developer.name(), developer.id(), existingProject, artifactId);
+                    } else if (uniqueKey != null) {
+                        developerToProjectMap.put(uniqueKey, artifactId);
+                    }
+                }
+
+                // Store the POM information
                 pomInfoByFile.put(artifactId, new PomInfo(developers, scmUrl, version));
             } catch (Exception e) {
                 System.out.println("Error processing file: " + pomFile.getName());
