@@ -106,10 +106,9 @@ public class MetadataExtractor {
                 String id = getElementValue(developerElement, "id");
                 String name = getElementValue(developerElement, "name");
                 String email = getElementValue(developerElement, "email");
-                String url = getElementValue(developerElement, "url");
 
                 // Create a Developer record and add it to the list
-                developers.add(new Developer(id, name, email, url, pomFile.getName()));
+                developers.add(new Developer(id, name, email, pomFile.getName()));
             }
         }
 
@@ -174,7 +173,6 @@ public class MetadataExtractor {
                         devDetails.put("id", dev.id() != null ? dev.id() : "N/A");
                         devDetails.put("name", dev.name() != null ? dev.name() : "N/A");
                         devDetails.put("email", dev.email() != null ? dev.email() : "N/A");
-                        devDetails.put("url", dev.url() != null ? dev.url() : "N/A");
                         return devDetails;
                     })
                     .toList();
@@ -196,7 +194,7 @@ public class MetadataExtractor {
     }
 
     // Record for developer information
-    public record Developer(String id, String name, String email, String url, String pomFile) {
+    public record Developer(String id, String name, String email, String pomFile) {
     }
 
     // Record for storing POM information
