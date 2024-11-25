@@ -84,6 +84,18 @@ poms:
       email: oli.olah.24@heilbronn.dhbw.de
       url: https://github.com/OliverOlah1
     version: 1.0.0-20241122.202608-1
+  com.zipse.length-password-validator:
+    scmUrl: https://github.com/dschklar/idontknow
+    developers:
+    - name: Daniel Schklar
+      id: dschklar
+      email: dhbw@schklar.de
+      url: N/A
+    - name: Luis Zipse
+      id: TypeWolf
+      email: lui.zipse.24@heilbronn.dhbw.de
+      url: N/A
+    version: 1.2-20241125.150343-1
   com.diepoe.securitease:
     scmUrl: https://github.com/diepoe/SecuriTease
     developers:
@@ -112,18 +124,6 @@ poms:
       email: elias.moegerle@gmail.com
       url: N/A
     version: 1.10.2-RELEASE
-  com.zipse.length-password-validator:
-    scmUrl: https://github.com/athenaeum-brew/maven-repo/packages/2319203
-    developers:
-    - name: Daniel Schklar
-      id: dschklar
-      email: dhbw@schklar.de
-      url: N/A
-    - name: Luis Zipse
-      id: TypeWolf
-      email: lui.zipse.24@heilbronn.dhbw.de
-      url: N/A
-    version: 1.1-20241120.133437-1
   com.niklas3852.lefortknox:
     scmUrl: N/A
     developers:
