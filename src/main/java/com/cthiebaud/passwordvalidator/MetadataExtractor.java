@@ -181,7 +181,7 @@ public class MetadataExtractor {
             pomEntries.put(artifactId, pomDetails);
         }
 
-        yamlData.put("poms", pomEntries);
+        yamlData.put("projects", pomEntries);
 
         // Write YAML to file
         try (FileWriter writer = new FileWriter(outputPath)) {
