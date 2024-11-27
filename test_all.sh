@@ -9,7 +9,7 @@ TARGET_DIR="target"
 DOWNLOADED_DIR="downloaded_packages"
 GROUP_ID="com.cthiebaud"
 ARTIFACT_ID="password-validator"
-VERSION="1.0.0-SNAPSHOT"
+VERSION="2.0.0-SNAPSHOT"
 
 # Ensure the target and downloaded directories exist
 mkdir -p "$TARGET_DIR"

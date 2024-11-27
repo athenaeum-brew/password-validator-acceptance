@@ -1,34 +1,28 @@
-chrisceltin:password_validator:1.0-SNAPSHOT
-OK
+chrisceltin:password_validator:1.0-20241125.165811-5
 Catqwe1
 
-com.diepoe:securitease:1.0.1-PRERELEASE
+com.diepoe:securitease:1.0.2-PRERELEASE
 OK
 XIII_XXIX_italy_bach_310_42
 
-com.jofittech:cryptique:2.0.0-SNAPSHOT
-Exception in thread "main" java.lang.NoClassDefFoundError: com/vaadin/flow/component/html/Div
-20TheBeatles23_11Albrandt - NO WAY !!!
+com.jofittech:cryptique:1.1-20241127.193112-1
+TheBeatles27_11Albrandt9
 
-com.kevalbra:sonatesecure:1.0-SNAPSHOT
-OK
+com.kevalbra:sonatesecure:1.0-20241125.195641-2
 123QWEcthiebaud¶#@
 
-com.niklas3852:lefortknox:2.0-SNAPSHOT
-OK
+com.niklas3852:lefortknox:2.0-20241120.145715-3
 qweasdzxc
 
-com.thomxs1:password-validator-main:1.0.0-SNAPSHOT
-OK
+com.thomxs1:password-validator-main:1.0.0-20241122.202608-1
 123!"£QWEasdWerderBremenChampionKim
 
 com.timeliassoeren:password-checker:1.10.2-RELEASE
-OK
 46QWEasd¶#@
 
-com.timo:password-validator:1.0-SNAPSHOT
-Error: Expected exactly one implementation of PasswordValidator, found: 0
+com.timo:password-validator:1.0.1-20241125.121638-1
+123QWEasdSchwarzSweden
 
-com.zipse:length-password-validator:1.1-SNAPSHOT
-Error playing sound: password-validator\src\sounds\unsecure.wav (No such file or directory)
+com.zipse:length-password-validator:1.2-20241125.150343-1
+123!"£QWEas
 

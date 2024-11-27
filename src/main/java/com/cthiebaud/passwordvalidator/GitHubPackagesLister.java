@@ -12,12 +12,18 @@ import java.util.Arrays;
 public class GitHubPackagesLister {
 
     public static void main(String[] args) throws Exception {
-        // Load the GitHub token from a file in src/main/resources
+        // Load GitHub token for authentication
         String tokenFilePath = "src/main/resources/github-token.txt";
         String token = loadToken(tokenFilePath);
-        String owner = "athenaeum-brew"; // GitHub organization
+        if (token == null || token.isBlank()) {
+            System.err.println("GitHub token is invalid or missing. Exiting.");
+            return;
+        }
+
+        String owner = "athenaeum-brew"; // GitHub organization name
         String apiUrl = String.format("https://api.github.com/orgs/%s/packages?package_type=maven", owner);
 
+        // Create HTTP client and send API request for packages
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(apiUrl))
@@ -28,6 +34,7 @@ public class GitHubPackagesLister {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         if (response.statusCode() == 200) {
+            // Parse the response JSON to list packages
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(response.body());
 
@@ -35,27 +42,30 @@ public class GitHubPackagesLister {
                 for (JsonNode packageNode : rootNode) {
                     String packageName = packageNode.get("name").asText();
 
-                    // Fetch the versions for this package
+                    // Fetch latest version for the package
                     String version = fetchLatestVersion(client, mapper, owner, packageName, token);
 
+                    // Derive Maven coordinates (groupId:artifactId:version)
                     String[] packageParts = packageName.split("\\.");
                     String groupId = String.join(".", Arrays.copyOfRange(packageParts, 0, packageParts.length - 1));
                     String artifactId = packageParts[packageParts.length - 1];
 
                     String line = String.format("%s:%s:%s", groupId, artifactId, version);
-                    writer.println(line);
+                    writer.println(line); // Write to output file
                 }
             }
 
             System.out.println("Package list written to packages.txt");
         } else {
-            System.out.println("Failed to fetch packages: " + response.statusCode());
-            System.out.println("Response: " + response.body());
+            // Handle errors in fetching packages
+            System.err.println("Failed to fetch packages: " + response.statusCode());
+            System.err.println("Response: " + response.body());
         }
     }
 
     private static String fetchLatestVersion(HttpClient client, ObjectMapper mapper, String owner,
             String packageName, String token) throws Exception {
+        // Fetch versions of a specific package
         String versionsUrl = String.format(
                 "https://api.github.com/orgs/%s/packages/maven/%s/versions", owner, packageName);
 
@@ -68,26 +78,28 @@ public class GitHubPackagesLister {
         HttpResponse<String> versionsResponse = client.send(versionsRequest, HttpResponse.BodyHandlers.ofString());
 
         if (versionsResponse.statusCode() == 200) {
+            // Parse and return the latest version name
             JsonNode versionsNode = mapper.readTree(versionsResponse.body());
             if (versionsNode.size() > 0) {
-                // Return the name of the first (latest) version
-                return versionsNode.get(0).get("name").asText();
+                return versionsNode.get(0).get("name").asText(); // Latest version
             } else {
-                return "no-version";
+                return "no-version"; // No versions available
             }
         } else {
-            System.out.println("Failed to fetch versions for package: " + packageName);
-            System.out.println("Response: " + versionsResponse.body());
+            // Log errors and return fallback value
+            System.err.println("Failed to fetch versions for package: " + packageName);
+            System.err.println("Response: " + versionsResponse.body());
             return "error-fetching-version";
         }
     }
 
     private static String loadToken(String filePath) {
+        // Load and return GitHub token from a file
         try {
             return Files.readString(Paths.get(filePath)).trim();
         } catch (Exception e) {
-            System.out.println("Error reading token file: " + e.getMessage());
-            return null;
+            System.err.println("Error reading token file: " + e.getMessage());
+            return null; // Return null if token loading fails
         }
     }
 }

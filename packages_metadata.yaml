@@ -1,5 +1,18 @@
-totalDevelopers: 24
+totalDevelopers: 27
 projects:
+  com.kevalbra.sonatesecure:
+    scmUrl: https://github.com/Albra12/SonateSecure
+    developers:
+    - name: Kevin Christian Albrandt
+      id: kevalbra
+      email: kev.albrandt.24@heilbronn.dhbw.de
+    - name: Vincent Scheibe
+      id: vincents269
+      email: vin.scheibe.24@heilbronn.dhbw.de
+    - name: Markus Ehnle
+      id: Markus19041
+      email: mar.ehnle.24@heilbronn.dhbw.de
+    version: 1.0-20241125.195641-2
   org.NBITPROJECT.bouncer:
     scmUrl: https://github.com/NB-IT-Project/Bouncer
     developers:
@@ -12,12 +25,7 @@ projects:
     - name: Niklas Mumm
       id: nikmumm
       email: nikmumm@gmail.com
-    version: 1.0-20241125.134746-1
-  com.kevalbra.sonatesecure:
-    scmUrl: N/A
-    developers: [
-      ]
-    version: 1.0-20241120.144028-1
+    version: 1.0-20241126.090609-2
   com.timo.password-validator:
     scmUrl: https://github.com/JunoGT/password-validator
     developers:
@@ -43,7 +51,7 @@ projects:
     - name: Kim Reger
       id: KimReg
       email: kim@reger1.de
-    version: 1.0-20241125.135724-5
+    version: 1.1-20241127.193112-1
   chrisceltin.password_validator:
     scmUrl: https://github.com/ITine-Tech/password_validator
     developers:
@@ -89,7 +97,7 @@ projects:
     - name: Mikail Mert Demirel
       id: dmrmika
       email: mik.demirel.24@heilbronn.dhbw.de
-    version: 1.0.1-PRERELEASE
+    version: 1.0.2-PRERELEASE
   com.timeliassoeren.password-checker:
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
