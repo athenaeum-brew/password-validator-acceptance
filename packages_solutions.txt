@@ -26,3 +26,5 @@ com.timo:password-validator:1.0.1-20241125.121638-1
 com.zipse:length-password-validator:1.2-20241125.150343-1
 123!"£QWEas
 
+org.NBITPROJECT.bouncer-1.0-20241126.090609-2
+123QWEasd¶#@

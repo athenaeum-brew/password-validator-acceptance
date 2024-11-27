@@ -15,7 +15,11 @@ VERSION="2.0.0-SNAPSHOT"
 mkdir -p "$TARGET_DIR"
 mkdir -p "$DOWNLOADED_DIR"
 
-# Step 1: Download password-validator.jar
+# Step 1: Clean up the target directory
+echo "Cleaning up existing JARs in $TARGET_DIR..."
+rm -f "$TARGET_DIR/$GROUP_ID.$ARTIFACT_ID-"*.jar
+
+# Step 2: Download password-validator.jar
 echo "Downloading $ARTIFACT_ID..."
 mvn dependency:copy \
     -U \
@@ -25,10 +29,17 @@ mvn dependency:copy \
     -Dmdep.useBaseVersion=false \
     -Dmdep.stripVersion=false
 
-# Locate the downloaded JAR and rename it
+# Step 3: Locate the downloaded JAR
 DOWNLOADED_JAR=$(find "$TARGET_DIR" -name "$GROUP_ID.$ARTIFACT_ID-*.jar" | head -n 1)
 
-# Step 2: Run the Tester with each student's JAR in the downloaded_packages directory
+if [ -n "$DOWNLOADED_JAR" ]; then
+    echo "Downloaded JAR located at: $DOWNLOADED_JAR"
+else
+    echo "Error: JAR not found in $TARGET_DIR. Exiting."
+    exit 1
+fi
+
+# Step 4: Run the Tester with each student's JAR in the downloaded_packages directory
 for STUDENT_JAR in "$DOWNLOADED_DIR"/*.jar; do
     if [[ -f "$STUDENT_JAR" ]]; then
         echo -e "\n"
