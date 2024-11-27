@@ -3,129 +3,129 @@ totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
     developers:
-    - id: cthiebaud
+    - email: christophe.t60@gmail.com
+      id: cthiebaud
       name: Christophe Thiebaud
-      email: christophe.t60@gmail.com
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     version: 1.1.0-20241127.213315-2
   com.kevalbra.sonatesecure:
     developers:
-    - id: kevalbra
+    - email: kev.albrandt.24@heilbronn.dhbw.de
+      id: kevalbra
       name: Kevin Christian Albrandt
-      email: kev.albrandt.24@heilbronn.dhbw.de
-    - id: vincents269
+    - email: vin.scheibe.24@heilbronn.dhbw.de
+      id: vincents269
       name: Vincent Scheibe
-      email: vin.scheibe.24@heilbronn.dhbw.de
-    - id: Markus19041
+    - email: mar.ehnle.24@heilbronn.dhbw.de
+      id: Markus19041
       name: Markus Ehnle
-      email: mar.ehnle.24@heilbronn.dhbw.de
     scmUrl: https://github.com/Albra12/SonateSecure
     version: 1.0-20241125.195641-2
   org.NBITPROJECT.bouncer:
     developers:
-    - id: NB-IT-Project
+    - email: nberggold@gmail.com
+      id: NB-IT-Project
       name: Nils Berggold
-      email: nberggold@gmail.com
-    - id: shiro-edoc
+    - email: machine_code@outlook.com
+      id: shiro-edoc
       name: Marios Zoumpulakis
-      email: machine_code@outlook.com
-    - id: nikmumm
+    - email: nikmumm@gmail.com
+      id: nikmumm
       name: Niklas Mumm
-      email: nikmumm@gmail.com
     scmUrl: https://github.com/NB-IT-Project/Bouncer
     version: 1.0-20241126.090609-2
   com.timo.password-validator:
     developers:
-    - id: JunoGT
+    - email: tim.gerlinger.24@heilbronn.dhbw.de
+      id: JunoGT
       name: Timo Gerlinger
-      email: tim.gerlinger.24@heilbronn.dhbw.de
-    - id: xJvstvs
+    - email: jus.krahl.24@heilbronn.dhbw.de
+      id: xJvstvs
       name: Justus Krahl
-      email: jus.krahl.24@heilbronn.dhbw.de
-    - id: Matthis404
+    - email: mat.kollmann.24@heilbronn.dhbw.de
+      id: Matthis404
       name: Matthis Kollmann
-      email: mat.kollmann.24@heilbronn.dhbw.de
     scmUrl: https://github.com/JunoGT/password-validator
     version: 1.0.1-20241125.121638-1
   com.jofittech.cryptique:
     developers:
-    - id: JoFitTech
+    - email: jos.lautner24@heiblronn.dhbw.de
+      id: JoFitTech
       name: Josef Lautner
-      email: jos.lautner24@heiblronn.dhbw.de
-    - id: 0ezzi
+    - email: luis.schirmbeck@gmail.com
+      id: 0ezzi
       name: Luis Schirmbeck
-      email: luis.schirmbeck@gmail.com
-    - id: KimReg
+    - email: kim@reger1.de
+      id: KimReg
       name: Kim Reger
-      email: kim@reger1.de
     scmUrl: https://github.com/JoFitTech/Cryptique
     version: 1.1-20241127.193112-1
   chrisceltin.password_validator:
     developers:
-    - id: ITine_Tech
+    - email: gundelc@gmail.com
+      id: ITine_Tech
       name: Christine Gundel
-      email: gundelc@gmail.com
-    - id: Tina241104
+    - email: tina-ranft@web.de
+      id: Tina241104
       name: Tina Ranft
-      email: tina-ranft@web.de
-    - id: celine250108
+    - email: hceline2501@gmail.com
+      id: celine250108
       name: Celine Hager
-      email: hceline2501@gmail.com
     scmUrl: https://github.com/ITine-Tech/password_validator
     version: 1.0-20241125.165811-5
   com.thomxs1.password-validator-main:
     developers:
-    - id: thomxs1
+    - email: tho.neumann.24@heilbronn.dhbw.de
+      id: thomxs1
       name: Thomas Neumann
-      email: tho.neumann.24@heilbronn.dhbw.de
-    - id: YannickMottl
+    - email: yan.mottl.24@heilbronn.dhbw.de
+      id: YannickMottl
       name: Yannick Mottl
-      email: yan.mottl.24@heilbronn.dhbw.de
-    - id: OliverOlah1
+    - email: oli.olah.24@heilbronn.dhbw.de
+      id: OliverOlah1
       name: Oliver Donat Olah
-      email: oli.olah.24@heilbronn.dhbw.de
     scmUrl: https://github.com/thomxs1/password-validator
     version: 1.0.0-20241122.202608-1
   com.zipse.length-password-validator:
     developers:
-    - id: dschklar
+    - email: dhbw@schklar.de
+      id: dschklar
       name: Daniel Schklar
-      email: dhbw@schklar.de
-    - id: TypeWolf
+    - email: lui.zipse.24@heilbronn.dhbw.de
+      id: TypeWolf
       name: Luis Zipse
-      email: lui.zipse.24@heilbronn.dhbw.de
     scmUrl: https://github.com/dschklar/idontknow
     version: 1.2-20241125.150343-1
   com.diepoe.securitease:
     developers:
-    - id: diepoe
+    - email: die.poensgen.24@heilbronn.dhbw.de
+      id: diepoe
       name: Dietrich Poensgen
-      email: die.poensgen.24@heilbronn.dhbw.de
-    - id: dmrmika
+    - email: mik.demirel.24@heilbronn.dhbw.de
+      id: dmrmika
       name: Mikail Mert Demirel
-      email: mik.demirel.24@heilbronn.dhbw.de
     scmUrl: https://github.com/diepoe/SecuriTease
     version: 1.0.2-PRERELEASE
   com.timeliassoeren.password-checker:
     developers:
-    - id: baumann-bechtle
+    - email: soeren@bettercallsoeren.com
+      id: baumann-bechtle
       name: Sören Baumann
-      email: soeren@bettercallsoeren.com
-    - id: tims1306
+    - email: tim.schmelz.24@heilbronn.dhbw.de
+      id: tims1306
       name: Tim Schmelz
-      email: tim.schmelz.24@heilbronn.dhbw.de
-    - id: Elias10115
+    - email: elias.moegerle@gmail.com
+      id: Elias10115
       name: Elias Mögerle
-      email: elias.moegerle@gmail.com
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     version: 1.10.2-RELEASE
   com.niklas3852.lefortknox:
     developers:
-    - id: niklas3852
+    - email: niklas-ulbrich@web.de
+      id: niklas3852
       name: Niklas Ulbrich
-      email: niklas-ulbrich@web.de
-    - id: Raqhael
+    - email: raphael.buller8@gmail.com
+      id: Raqhael
       name: Raphael Buller
-      email: raphael.buller8@gmail.com
     scmUrl: N/A
     version: 2.0-20241120.145715-3
