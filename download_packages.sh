@@ -62,8 +62,8 @@ resolve_snapshot_version() {
 while IFS= read -r package; do
     IFS=":" read -r groupId artifactId version <<< "$package"
 
-    # Ignore packages with groupId starting with 'com.cthiebaud'
-    if [[ $groupId == com.cthiebaud* ]]; then
+    # Ignore packages with groupId starting with 'com.cthiebaud', except 'password-validator-impl'
+    if [[ $groupId == com.cthiebaud* && $artifactId != "password-validator-impl" ]]; then
         echo "Skipping package: $groupId:$artifactId:$version (it's yours!)"
         continue
     fi

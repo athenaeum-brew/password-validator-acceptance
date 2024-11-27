@@ -1,5 +1,12 @@
-totalDevelopers: 27
+totalDevelopers: 28
 projects:
+  com.cthiebaud.password-validator-impl:
+    scmUrl: https://github.com/athenaeum-brew/password-validator-impl
+    developers:
+    - name: Christophe Thiebaud
+      id: cthiebaud
+      email: christophe.t60@gmail.com
+    version: 1.0.0-20241127.212843-9
   com.kevalbra.sonatesecure:
     scmUrl: https://github.com/Albra12/SonateSecure
     developers:

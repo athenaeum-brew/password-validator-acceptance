@@ -1,17 +1,31 @@
 package com.cthiebaud.passwordvalidator;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.net.http.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.jar.JarFile;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 public class GitHubPackagesLister {
 
     public static void main(String[] args) throws Exception {
+        // Load exclusions from file
+        Set<String> exclusions = loadExclusions("exclusions.yaml");
+
         // Load GitHub token for authentication
         String tokenFilePath = "src/main/resources/github-token.txt";
         String token = loadToken(tokenFilePath);
@@ -47,8 +61,16 @@ public class GitHubPackagesLister {
 
                     // Derive Maven coordinates (groupId:artifactId:version)
                     String[] packageParts = packageName.split("\\.");
-                    String groupId = String.join(".", Arrays.copyOfRange(packageParts, 0, packageParts.length - 1));
+                    String groupId = String.join(".", List.of(packageParts).subList(0, packageParts.length - 1));
                     String artifactId = packageParts[packageParts.length - 1];
+
+                    String fullArtifact = String.format("%s:%s", groupId, artifactId);
+
+                    // Check if the package should be excluded
+                    if (exclusions.contains(fullArtifact)) {
+                        System.out.printf("Skipping package: %s:%s:%s (excluded)\n", groupId, artifactId, version);
+                        continue;
+                    }
 
                     String line = String.format("%s:%s:%s", groupId, artifactId, version);
                     writer.println(line); // Write to output file
@@ -61,6 +83,27 @@ public class GitHubPackagesLister {
             System.err.println("Failed to fetch packages: " + response.statusCode());
             System.err.println("Response: " + response.body());
         }
+    }
+
+    private static Set<String> loadExclusions(String exclusionsFileName) throws IOException {
+        Set<String> exclusions = new HashSet<>();
+        try (InputStream input = GitHubPackagesLister.class.getClassLoader().getResourceAsStream(exclusionsFileName)) {
+            if (input == null) {
+                System.err.println("Exclusions file not found. No exclusions will be applied.");
+                return exclusions;
+            }
+
+            ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+            JsonNode root = yamlMapper.readTree(input);
+            JsonNode exclusionsNode = root.get("exclusions");
+
+            if (exclusionsNode != null && exclusionsNode.isArray()) {
+                for (JsonNode exclusion : exclusionsNode) {
+                    exclusions.add(exclusion.asText());
+                }
+            }
+        }
+        return exclusions;
     }
 
     private static String fetchLatestVersion(HttpClient client, ObjectMapper mapper, String owner,

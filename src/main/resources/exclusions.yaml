@@ -1,0 +1,4 @@
+# List of artifacts to exclude
+exclusions:
+  - com.cthiebaud:password-validator
+  - com.cthiebaud:password-validator-acceptance
