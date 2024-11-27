@@ -1,13 +1,9 @@
 package com.cthiebaud.passwordvalidator;
 
 import org.w3c.dom.*;
-import org.yaml.snakeyaml.DumperOptions;
-import org.yaml.snakeyaml.Yaml;
 
 import javax.xml.parsers.*;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,8 +67,9 @@ public class MetadataExtractor {
             }
         }
 
-        // Write developers, SCM URL, and version to a structured text file
-        writePomInfoToYamlFile(pomInfoByFile, "packages_metadata.yaml");
+        // Use the YamlWriter to write developers, SCM URL, and version to a structured
+        // text file
+        YamlWriter.writePomInfoToYamlFile(pomInfoByFile, "packages_metadata.yaml");
     }
 
     // Extract artifact ID (base name without version or extension) from the POM
@@ -163,55 +160,6 @@ public class MetadataExtractor {
             return nodeList.item(0).getTextContent();
         }
         return null;
-    }
-
-    public static void writePomInfoToYamlFile(Map<String, PomInfo> pomInfoByFile, String outputPath) {
-        // Prepare YAML configuration
-        DumperOptions options = new DumperOptions();
-        options.setPrettyFlow(true);
-        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-
-        Yaml yaml = new Yaml(options);
-
-        // Prepare the data structure for YAML
-        Map<String, Object> yamlData = new HashMap<>();
-        yamlData.put("totalDevelopers", pomInfoByFile.values().stream()
-                .mapToInt(info -> info.developers().size())
-                .sum());
-
-        Map<String, Object> pomEntries = new HashMap<>();
-        for (Map.Entry<String, PomInfo> entry : pomInfoByFile.entrySet()) {
-            String artifactId = entry.getKey();
-            PomInfo info = entry.getValue();
-
-            Map<String, Object> pomDetails = new HashMap<>();
-            pomDetails.put("scmUrl", info.scmUrl() != null ? info.scmUrl() : "N/A");
-            pomDetails.put("version", info.version() != null ? info.version() : "Unknown");
-
-            List<Map<String, String>> developers = info.developers().stream()
-                    .map(dev -> {
-                        Map<String, String> devDetails = new HashMap<>();
-                        devDetails.put("id", dev.id() != null ? dev.id() : "N/A");
-                        devDetails.put("name", dev.name() != null ? dev.name() : "N/A");
-                        devDetails.put("email", dev.email() != null ? dev.email() : "N/A");
-                        return devDetails;
-                    })
-                    .toList();
-            pomDetails.put("developers", developers);
-
-            pomEntries.put(artifactId, pomDetails);
-        }
-
-        yamlData.put("projects", pomEntries);
-
-        // Write YAML to file
-        try (FileWriter writer = new FileWriter(outputPath)) {
-            yaml.dump(yamlData, writer);
-            System.out.println("Metadata written to YAML file: " + outputPath);
-        } catch (IOException e) {
-            System.out.println("Error writing to YAML file.");
-            e.printStackTrace();
-        }
     }
 
     // Record for developer information
