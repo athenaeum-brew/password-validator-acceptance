@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cthiebaud</groupId>
+    <artifactId>password-validator-acceptance-multi-module</artifactId>
+    <version>0.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- miscellaneous -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>23</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Ensure Surefire Plugin applies to submodules -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.2</version>
+                    <configuration>
+                        <failIfNoTests>true</failIfNoTests>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>require-tests</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireFilesExist>
+                                    <files>
+                                        <file>${project.basedir}/src/test/java</file>
+                                    </files>
+                                    <message>Every module must have tests defined!</message>
+                                </requireFilesExist>
+                            </rules>
+                            <!-- Skip rule for the parent POM -->
+                            <skip>${project.packaging} == 'pom'</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.0</version> <!-- Use the latest version -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>org.NBITPROJECT.bouncer</module>
+        <module>lefortknox-2.0-SNAPSHOT-project</module>
+        <module>com.zipse.length-password-validator</module>
+        <module>com.timo.password-validator</module>
+        <module>com.timeliassoeren.password-checker</module>
+        <module>com.thomxs1.password-validator-main</module>
+        <module>com.kevalbra.sonatesecure</module>
+        <module>com.jofittech.cryptique</module>
+        <module>com.diepoe.securitease</module>
+        <module>com.cthiebaud.password-validator-impl</module>
+        <module>chrisceltin.password_validator</module>
+    </modules>
+</project>
