@@ -45,8 +45,21 @@ for project in "$MODULES_DIR"/*; do
         SUBMODULE_POM="multi-module-project/$MODULE_NAME/pom.xml"
         if [ -f "$SUBMODULE_POM" ]; then
             echo "Adding Surefire plugin to $SUBMODULE_POM"
-            sed -i '/<\/plugins>/i \
-            '"$PLUGIN_CONFIG" "$SUBMODULE_POM"
+            PLUGIN_TEMP_FILE=$(mktemp)
+
+            # Write the plugin configuration to a temporary file
+            echo "$PLUGIN_CONFIG" > "$PLUGIN_TEMP_FILE"
+
+            if [ "$(uname)" = "Darwin" ]; then
+                TMP_POM=$(mktemp)
+                sed "/<\/plugins>/r $PLUGIN_TEMP_FILE" "$SUBMODULE_POM" > "$TMP_POM"
+                mv "$TMP_POM" "$SUBMODULE_POM"
+            else
+                sed -i "/<\/plugins>/r $PLUGIN_TEMP_FILE" "$SUBMODULE_POM"
+            fi
+
+            # Clean up the temporary file
+            rm "$PLUGIN_TEMP_FILE"
         else
             echo "WARNING: $SUBMODULE_POM does not exist. Skipping plugin addition."
         fi
