@@ -112,10 +112,13 @@ public class YamlWriter {
          */
         private static List<Map<String, String>> prepareDevelopersList(List<Developer> developers) {
                 return developers.stream()
-                                .map(dev -> Map.of(
-                                                "id", dev.id() != null ? dev.id() : "N/A",
-                                                "name", dev.name() != null ? dev.name() : "N/A",
-                                                "email", dev.email() != null ? dev.email() : "N/A"))
+                                .map(dev -> {
+                                        Map<String, String> devMap = new LinkedHashMap<>();
+                                        devMap.put("id", dev.id() != null ? dev.id() : "N/A");
+                                        devMap.put("name", dev.name() != null ? dev.name() : "N/A");
+                                        devMap.put("email", dev.email() != null ? dev.email() : "N/A");
+                                        return devMap;
+                                })
                                 .toList();
         }
 }
