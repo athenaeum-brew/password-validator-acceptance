@@ -1,5 +1,4 @@
 ---
-totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
@@ -7,147 +6,148 @@ projects:
     version: 1.1.0-20241127.213315-2
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
-    - email: christophe.t60@gmail.com
+    - name: Christophe Thiebaud
+      email: christophe.t60@gmail.com
       id: cthiebaud
-      name: Christophe Thiebaud
   com.kevalbra.sonatesecure:
     groupId: com.kevalbra
     artifactId: sonatesecure
     version: 1.0-20241125.195641-2
     scmUrl: https://github.com/Albra12/SonateSecure
     developers:
-    - email: kev.albrandt.24@heilbronn.dhbw.de
+    - name: Kevin Christian Albrandt
+      email: kev.albrandt.24@heilbronn.dhbw.de
       id: kevalbra
-      name: Kevin Christian Albrandt
-    - email: vin.scheibe.24@heilbronn.dhbw.de
+    - name: Vincent Scheibe
+      email: vin.scheibe.24@heilbronn.dhbw.de
       id: vincents269
-      name: Vincent Scheibe
-    - email: mar.ehnle.24@heilbronn.dhbw.de
+    - name: Markus Ehnle
+      email: mar.ehnle.24@heilbronn.dhbw.de
       id: Markus19041
-      name: Markus Ehnle
   org.NBITPROJECT.bouncer:
     groupId: org.NBITPROJECT
     artifactId: bouncer
     version: 1.0-20241126.090609-2
     scmUrl: https://github.com/NB-IT-Project/Bouncer
     developers:
-    - email: nberggold@gmail.com
+    - name: Nils Berggold
+      email: nberggold@gmail.com
       id: NB-IT-Project
-      name: Nils Berggold
-    - email: machine_code@outlook.com
+    - name: Marios Zoumpulakis
+      email: machine_code@outlook.com
       id: shiro-edoc
-      name: Marios Zoumpulakis
-    - email: nikmumm@gmail.com
+    - name: Niklas Mumm
+      email: nikmumm@gmail.com
       id: nikmumm
-      name: Niklas Mumm
   com.timo.password-validator:
     groupId: com.timo
     artifactId: password-validator
     version: 1.0.1-20241125.121638-1
     scmUrl: https://github.com/JunoGT/password-validator
     developers:
-    - email: tim.gerlinger.24@heilbronn.dhbw.de
+    - name: Timo Gerlinger
+      email: tim.gerlinger.24@heilbronn.dhbw.de
       id: JunoGT
-      name: Timo Gerlinger
-    - email: jus.krahl.24@heilbronn.dhbw.de
+    - name: Justus Krahl
+      email: jus.krahl.24@heilbronn.dhbw.de
       id: xJvstvs
-      name: Justus Krahl
-    - email: mat.kollmann.24@heilbronn.dhbw.de
+    - name: Matthis Kollmann
+      email: mat.kollmann.24@heilbronn.dhbw.de
       id: Matthis404
-      name: Matthis Kollmann
   com.jofittech.cryptique:
     groupId: com.jofittech
     artifactId: cryptique
     version: 1.1-20241127.193112-1
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
-    - email: jos.lautner24@heiblronn.dhbw.de
+    - name: Josef Lautner
+      email: jos.lautner24@heiblronn.dhbw.de
       id: JoFitTech
-      name: Josef Lautner
-    - email: luis.schirmbeck@gmail.com
+    - name: Luis Schirmbeck
+      email: luis.schirmbeck@gmail.com
       id: 0ezzi
-      name: Luis Schirmbeck
-    - email: kim@reger1.de
+    - name: Kim Reger
+      email: kim@reger1.de
       id: KimReg
-      name: Kim Reger
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
     version: 1.0-20241125.165811-5
     scmUrl: https://github.com/ITine-Tech/password_validator
     developers:
-    - email: gundelc@gmail.com
+    - name: Christine Gundel
+      email: gundelc@gmail.com
       id: ITine_Tech
-      name: Christine Gundel
-    - email: tina-ranft@web.de
+    - name: Tina Ranft
+      email: tina-ranft@web.de
       id: Tina241104
-      name: Tina Ranft
-    - email: hceline2501@gmail.com
+    - name: Celine Hager
+      email: hceline2501@gmail.com
       id: celine250108
-      name: Celine Hager
   com.thomxs1.password-validator-main:
     groupId: com.thomxs1
     artifactId: password-validator-main
     version: 1.0.0-20241122.202608-1
     scmUrl: https://github.com/thomxs1/password-validator
     developers:
-    - email: tho.neumann.24@heilbronn.dhbw.de
+    - name: Thomas Neumann
+      email: tho.neumann.24@heilbronn.dhbw.de
       id: thomxs1
-      name: Thomas Neumann
-    - email: yan.mottl.24@heilbronn.dhbw.de
+    - name: Yannick Mottl
+      email: yan.mottl.24@heilbronn.dhbw.de
       id: YannickMottl
-      name: Yannick Mottl
-    - email: oli.olah.24@heilbronn.dhbw.de
+    - name: Oliver Donat Olah
+      email: oli.olah.24@heilbronn.dhbw.de
       id: OliverOlah1
-      name: Oliver Donat Olah
   com.zipse.length-password-validator:
     groupId: com.zipse
     artifactId: length-password-validator
     version: 1.2-20241125.150343-1
     scmUrl: https://github.com/dschklar/idontknow
     developers:
-    - email: dhbw@schklar.de
+    - name: Daniel Schklar
+      email: dhbw@schklar.de
       id: dschklar
-      name: Daniel Schklar
-    - email: lui.zipse.24@heilbronn.dhbw.de
+    - name: Luis Zipse
+      email: lui.zipse.24@heilbronn.dhbw.de
       id: TypeWolf
-      name: Luis Zipse
   com.diepoe.securitease:
     groupId: com.diepoe
     artifactId: securitease
     version: 1.0.2-PRERELEASE
     scmUrl: https://github.com/diepoe/SecuriTease
     developers:
-    - email: die.poensgen.24@heilbronn.dhbw.de
+    - name: Dietrich Poensgen
+      email: die.poensgen.24@heilbronn.dhbw.de
       id: diepoe
-      name: Dietrich Poensgen
-    - email: mik.demirel.24@heilbronn.dhbw.de
+    - name: Mikail Mert Demirel
+      email: mik.demirel.24@heilbronn.dhbw.de
       id: dmrmika
-      name: Mikail Mert Demirel
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
     version: 1.10.2-RELEASE
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
-    - email: soeren@bettercallsoeren.com
+    - name: Sören Baumann
+      email: soeren@bettercallsoeren.com
       id: baumann-bechtle
-      name: Sören Baumann
-    - email: tim.schmelz.24@heilbronn.dhbw.de
+    - name: Tim Schmelz
+      email: tim.schmelz.24@heilbronn.dhbw.de
       id: tims1306
-      name: Tim Schmelz
-    - email: elias.moegerle@gmail.com
+    - name: Elias Mögerle
+      email: elias.moegerle@gmail.com
       id: Elias10115
-      name: Elias Mögerle
   com.niklas3852.lefortknox:
     groupId: com.niklas3852
     artifactId: lefortknox
     version: 2.0-20241120.145715-3
     scmUrl: N/A
     developers:
-    - email: niklas-ulbrich@web.de
+    - name: Niklas Ulbrich
+      email: niklas-ulbrich@web.de
       id: niklas3852
-      name: Niklas Ulbrich
-    - email: raphael.buller8@gmail.com
+    - name: Raphael Buller
+      email: raphael.buller8@gmail.com
       id: Raqhael
-      name: Raphael Buller
+totalDevelopers: 28
