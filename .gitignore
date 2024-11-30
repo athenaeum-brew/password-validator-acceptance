@@ -16,8 +16,10 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-downloaded_packages0
 downloaded_packages
+downloaded_packages0
+downloaded_sources
+downloaded_sources0
 packages_solutions.txt
 src/main/resources/github-token.txt
 
