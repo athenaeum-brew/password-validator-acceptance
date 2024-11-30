@@ -37,13 +37,15 @@ public class MetadataExtractor {
         for (File pomFile : pomFiles) {
             System.out.println("Processing: " + pomFile.getName());
             try {
-                // Extract artifact ID and version
-                String artifactId = extractArtifactIdFromFileName(pomFile.getName());
+                // Use filename (without extension) as the project key
+                String projectKey = extractArtifactIdFromFileName(pomFile.getName());
                 String version = extractVersionFromFileName(pomFile.getName());
 
                 // Parse the POM file
-                List<Developer> developers = parsePOMForDevelopers(pomFile);
+                String artifactId = parsePOMForArtifactId(pomFile);
+                String groupId = parsePOMForGroupId(pomFile);
                 String scmUrl = parsePOMForScmUrl(pomFile);
+                List<Developer> developers = parsePOMForDevelopers(pomFile);
 
                 // Check for duplicate developers across projects
                 for (Developer developer : developers) {
@@ -60,7 +62,7 @@ public class MetadataExtractor {
                 }
 
                 // Store the POM information
-                pomInfoByFile.put(artifactId, new PomInfo(developers, scmUrl, version));
+                pomInfoByFile.put(projectKey, new PomInfo(artifactId, groupId, version, developers, scmUrl));
             } catch (Exception e) {
                 System.out.println("Error processing file: " + pomFile.getName());
                 e.printStackTrace();
@@ -70,6 +72,40 @@ public class MetadataExtractor {
         // Use the YamlWriter to write developers, SCM URL, and version to a structured
         // text file
         YamlWriter.writePomInfoToYamlFile(pomInfoByFile, "packages_metadata.yaml");
+    }
+
+    // Parse the POM file to extract the artifactId
+    public static String parsePOMForArtifactId(File pomFile) throws Exception {
+        return parseElementFromPOM(pomFile, "artifactId");
+    }
+
+    // Parse the POM file to extract the groupId
+    public static String parsePOMForGroupId(File pomFile) throws Exception {
+        return parseElementFromPOM(pomFile, "groupId");
+    }
+
+    // Parse the POM file to extract the version
+    public static String parsePOMForVersion(File pomFile) throws Exception {
+        return parseElementFromPOM(pomFile, "version");
+    }
+
+    // General method to parse a specific element (e.g., artifactId, groupId,
+    // version) from the POM file
+    public static String parseElementFromPOM(File pomFile, String tagName) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(pomFile);
+
+        // Normalize the XML structure
+        doc.getDocumentElement().normalize();
+
+        // Locate the element
+        NodeList nodeList = doc.getElementsByTagName(tagName);
+        if (nodeList != null && nodeList.getLength() > 0) {
+            return nodeList.item(0).getTextContent();
+        }
+
+        return null; // Return null if the element is not found
     }
 
     // Extract artifact ID (base name without version or extension) from the POM
@@ -167,6 +203,7 @@ public class MetadataExtractor {
     }
 
     // Record for storing POM information
-    public record PomInfo(List<Developer> developers, String scmUrl, String version) {
+    public record PomInfo(String artifactId, String groupId, String version, List<Developer> developers,
+            String scmUrl) {
     }
 }

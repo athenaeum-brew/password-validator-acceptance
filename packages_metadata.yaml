@@ -2,13 +2,19 @@
 totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
+    groupId: com.cthiebaud
+    artifactId: password-validator-impl
+    version: 1.1.0-20241127.213315-2
+    scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
     - email: christophe.t60@gmail.com
       id: cthiebaud
       name: Christophe Thiebaud
-    scmUrl: https://github.com/athenaeum-brew/password-validator-impl
-    version: 1.1.0-20241127.213315-2
   com.kevalbra.sonatesecure:
+    groupId: com.kevalbra
+    artifactId: sonatesecure
+    version: 1.0-20241125.195641-2
+    scmUrl: https://github.com/Albra12/SonateSecure
     developers:
     - email: kev.albrandt.24@heilbronn.dhbw.de
       id: kevalbra
@@ -19,9 +25,11 @@ projects:
     - email: mar.ehnle.24@heilbronn.dhbw.de
       id: Markus19041
       name: Markus Ehnle
-    scmUrl: https://github.com/Albra12/SonateSecure
-    version: 1.0-20241125.195641-2
   org.NBITPROJECT.bouncer:
+    groupId: org.NBITPROJECT
+    artifactId: bouncer
+    version: 1.0-20241126.090609-2
+    scmUrl: https://github.com/NB-IT-Project/Bouncer
     developers:
     - email: nberggold@gmail.com
       id: NB-IT-Project
@@ -32,9 +40,11 @@ projects:
     - email: nikmumm@gmail.com
       id: nikmumm
       name: Niklas Mumm
-    scmUrl: https://github.com/NB-IT-Project/Bouncer
-    version: 1.0-20241126.090609-2
   com.timo.password-validator:
+    groupId: com.timo
+    artifactId: password-validator
+    version: 1.0.1-20241125.121638-1
+    scmUrl: https://github.com/JunoGT/password-validator
     developers:
     - email: tim.gerlinger.24@heilbronn.dhbw.de
       id: JunoGT
@@ -45,9 +55,11 @@ projects:
     - email: mat.kollmann.24@heilbronn.dhbw.de
       id: Matthis404
       name: Matthis Kollmann
-    scmUrl: https://github.com/JunoGT/password-validator
-    version: 1.0.1-20241125.121638-1
   com.jofittech.cryptique:
+    groupId: com.jofittech
+    artifactId: cryptique
+    version: 1.1-20241127.193112-1
+    scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
     - email: jos.lautner24@heiblronn.dhbw.de
       id: JoFitTech
@@ -58,9 +70,11 @@ projects:
     - email: kim@reger1.de
       id: KimReg
       name: Kim Reger
-    scmUrl: https://github.com/JoFitTech/Cryptique
-    version: 1.1-20241127.193112-1
   chrisceltin.password_validator:
+    groupId: chrisceltin
+    artifactId: password_validator
+    version: 1.0-20241125.165811-5
+    scmUrl: https://github.com/ITine-Tech/password_validator
     developers:
     - email: gundelc@gmail.com
       id: ITine_Tech
@@ -71,9 +85,11 @@ projects:
     - email: hceline2501@gmail.com
       id: celine250108
       name: Celine Hager
-    scmUrl: https://github.com/ITine-Tech/password_validator
-    version: 1.0-20241125.165811-5
   com.thomxs1.password-validator-main:
+    groupId: com.thomxs1
+    artifactId: password-validator-main
+    version: 1.0.0-20241122.202608-1
+    scmUrl: https://github.com/thomxs1/password-validator
     developers:
     - email: tho.neumann.24@heilbronn.dhbw.de
       id: thomxs1
@@ -84,9 +100,11 @@ projects:
     - email: oli.olah.24@heilbronn.dhbw.de
       id: OliverOlah1
       name: Oliver Donat Olah
-    scmUrl: https://github.com/thomxs1/password-validator
-    version: 1.0.0-20241122.202608-1
   com.zipse.length-password-validator:
+    groupId: com.zipse
+    artifactId: length-password-validator
+    version: 1.2-20241125.150343-1
+    scmUrl: https://github.com/dschklar/idontknow
     developers:
     - email: dhbw@schklar.de
       id: dschklar
@@ -94,9 +112,11 @@ projects:
     - email: lui.zipse.24@heilbronn.dhbw.de
       id: TypeWolf
       name: Luis Zipse
-    scmUrl: https://github.com/dschklar/idontknow
-    version: 1.2-20241125.150343-1
   com.diepoe.securitease:
+    groupId: com.diepoe
+    artifactId: securitease
+    version: 1.0.2-PRERELEASE
+    scmUrl: https://github.com/diepoe/SecuriTease
     developers:
     - email: die.poensgen.24@heilbronn.dhbw.de
       id: diepoe
@@ -104,9 +124,11 @@ projects:
     - email: mik.demirel.24@heilbronn.dhbw.de
       id: dmrmika
       name: Mikail Mert Demirel
-    scmUrl: https://github.com/diepoe/SecuriTease
-    version: 1.0.2-PRERELEASE
   com.timeliassoeren.password-checker:
+    groupId: com.timeliassoeren
+    artifactId: password-checker
+    version: 1.10.2-RELEASE
+    scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
     - email: soeren@bettercallsoeren.com
       id: baumann-bechtle
@@ -117,9 +139,11 @@ projects:
     - email: elias.moegerle@gmail.com
       id: Elias10115
       name: Elias Mögerle
-    scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
-    version: 1.10.2-RELEASE
   com.niklas3852.lefortknox:
+    groupId: com.niklas3852
+    artifactId: lefortknox
+    version: 2.0-20241120.145715-3
+    scmUrl: N/A
     developers:
     - email: niklas-ulbrich@web.de
       id: niklas3852
@@ -127,5 +151,3 @@ projects:
     - email: raphael.buller8@gmail.com
       id: Raqhael
       name: Raphael Buller
-    scmUrl: N/A
-    version: 2.0-20241120.145715-3
