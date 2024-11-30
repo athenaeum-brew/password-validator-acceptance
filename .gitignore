@@ -24,5 +24,6 @@ downloaded_sources0
 packages_solutions.txt
 src/main/resources/github-token.txt
 
-
+multi-module-project/*/
+!multi-module-project/*
 

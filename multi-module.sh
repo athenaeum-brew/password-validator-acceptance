@@ -3,6 +3,15 @@
 PARENT_POM="multi-module-project/pom.xml"
 MODULES_DIR="downloaded_sources"
 
+PLUGIN_CONFIG="<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.2</version>
+    <configuration>
+        <failIfNoTests>true</failIfNoTests>
+    </configuration>
+</plugin>"
+
 echo "Adding modules to parent POM..."
 
 # Create a backup of the parent POM (in case of issues)
@@ -31,6 +40,17 @@ for project in "$MODULES_DIR"/*; do
         echo "Adding module: $MODULE_NAME"
         # Copy each module to the parent directory
         cp -r "$project" "multi-module-project/$MODULE_NAME"
+
+        # Add the Surefire plugin configuration to the submodule's POM
+        SUBMODULE_POM="multi-module-project/$MODULE_NAME/pom.xml"
+        if [ -f "$SUBMODULE_POM" ]; then
+            echo "Adding Surefire plugin to $SUBMODULE_POM"
+            sed -i '/<\/plugins>/i \
+            '"$PLUGIN_CONFIG" "$SUBMODULE_POM"
+        else
+            echo "WARNING: $SUBMODULE_POM does not exist. Skipping plugin addition."
+        fi
+
         # Add the module to the parent POM
         if [ "$(uname)" = "Darwin" ]; then
             TMP_POM=$(mktemp)
