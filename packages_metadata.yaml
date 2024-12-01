@@ -1,9 +1,10 @@
 ---
+totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
     artifactId: password-validator-impl
-    version: 1.1.0-20241130.222138-4
+    version: 1.1.0-20241201.152743-1
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
     - id: cthiebaud
@@ -150,4 +151,3 @@ projects:
     - id: Raqhael
       name: Raphael Buller
       email: raphael.buller8@gmail.com
-totalDevelopers: 28
