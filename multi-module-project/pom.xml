@@ -1,7 +1,5 @@
-<?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cthiebaud</groupId>
     <artifactId>password-validator-acceptance-multi-module</artifactId>
@@ -28,7 +26,6 @@
                             <goal>aggregate</goal>
                         </goals>
                         <configuration>
-                            <!-- Include all submodules -->
                             <aggregate>true</aggregate>
                             <source>${java.version}</source>
                             <encoding>${project.build.sourceEncoding}</encoding>
@@ -40,7 +37,7 @@
         </plugins>
     </build>
     <modules>
-        <!-- module>com.zipse.length-password-validator</!-->
+        <module>com.zipse.length-password-validator</module>
         <module>com.kevalbra.sonatesecure</module>
         <module>com.timeliassoeren.password-checker</module>
         <module>com.thomxs1.password-validator-main</module>
