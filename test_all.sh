@@ -11,6 +11,16 @@ GROUP_ID="com.cthiebaud"
 ARTIFACT_ID="password-validator"
 VERSION="1.1.0-SNAPSHOT"
 
+# Function to decorate a string with a dynamic border
+decorate_text() {
+    local text="$1"
+    local len=${#text}
+    local border=$(printf '+%*s+' $((len + 2)) '' | tr ' ' '-')
+    echo "$border"
+    echo "| $text |"
+    echo "$border"
+}
+
 # Ensure the target and downloaded directories exist
 mkdir -p "$TARGET_DIR"
 mkdir -p "$DOWNLOADED_DIR"
@@ -43,8 +53,13 @@ fi
 for STUDENT_JAR in "$DOWNLOADED_DIR"/*.jar; do
     if [[ -f "$STUDENT_JAR" ]]; then
         echo -e "\n"
-        echo "Running Tester:"
-        echo "java -jar \"$DOWNLOADED_JAR\" \"$STUDENT_JAR\""
+        basename="${STUDENT_JAR##*/}"  # Removes everything before the last '/'
+        trimmed="${basename%.*}"       # Removes everything from the last '.' onward
+
+        # Call the decoration function
+        decorate_text "$trimmed"
+        
+        # Execute the Java program
         java -jar "$DOWNLOADED_JAR" "$STUDENT_JAR"
     else
         echo "No student JAR files found in $DOWNLOADED_DIR."
