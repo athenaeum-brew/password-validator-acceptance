@@ -14,11 +14,22 @@
 
 | Criterion                                         | Points |
 |--------------------------------------------------|--------|
-| The JAR file containing the implementation is downloaded from athenaeum-brew maven repo, and is executed ok by the test program | 3      |
-| Validation criteria is described in a README file at the root of the project           | 3      |
-| Source code contains javadoc comments                                                | 3      |
-| Implementation is unit tested                                                       | 3      |
-| Usability evaluation                                                                 | 2      |
-| Coding evaluation                                                                    | 2      |
-| Test evaluation                                                                   | 2      |
-| Documentation evaluation                                                            | 2      |
+| - The JAR file containing the implementation is downloaded from the Athenaeum-Brew Maven repository and is successfully executed by the test program  | 3  |
+| - The validation criteria are outlined in a README file located at the root of the project.                                                           | 3  |
+| - The source code includes Javadoc comments.                                                                                                          | 3  |
+| - The implementation is accompanied by unit tests.                                                                                                    | 3  |
+| - Usability assessment.                                                                                                                               | 2  |
+| - Code quality assessment.                                                                                                                            | 2  |
+| - Test coverage assessment.                                                                                                                           | 2  |
+| - Documentation quality assessment.                                                                                                                   | 2  |
+
+
+
+
+
+
+
+
+
+
+
