@@ -27,3 +27,4 @@ src/main/resources/github-token.txt
 multi-module-project/*/
 !multi-module-project/pom.xml
 
+reviews

@@ -10,6 +10,7 @@ projects:
     - id: cthiebaud
       name: Christophe Thiebaud
       email: christophe.t60@gmail.com
+    alldevmails: Christophe Thiebaud <christophe.t60@gmail.com>
   com.kevalbra.sonatesecure:
     groupId: com.kevalbra
     artifactId: sonatesecure
@@ -25,6 +26,7 @@ projects:
     - id: Markus19041
       name: Markus Ehnle
       email: mar.ehnle.24@heilbronn.dhbw.de
+    alldevmails: "Kevin Christian Albrandt <kev.albrandt.24@heilbronn.dhbw.de>, Vincent Scheibe <vin.scheibe.24@heilbronn.dhbw.de>, Markus Ehnle <mar.ehnle.24@heilbronn.dhbw.de>"
   org.NBITPROJECT.bouncer:
     groupId: org.NBITPROJECT
     artifactId: bouncer
@@ -40,6 +42,7 @@ projects:
     - id: nikmumm
       name: Niklas Mumm
       email: nikmumm@gmail.com
+    alldevmails: "Nils Berggold <nberggold@gmail.com>, Marios Zoumpulakis <machine_code@outlook.com>, Niklas Mumm <nikmumm@gmail.com>"
   com.timo.password-validator:
     groupId: com.timo
     artifactId: password-validator
@@ -55,6 +58,7 @@ projects:
     - id: Matthis404
       name: Matthis Kollmann
       email: mat.kollmann.24@heilbronn.dhbw.de
+    alldevmails: "Timo Gerlinger <tim.gerlinger.24@heilbronn.dhbw.de>, Justus Krahl <jus.krahl.24@heilbronn.dhbw.de>, Matthis Kollmann <mat.kollmann.24@heilbronn.dhbw.de>"
   com.jofittech.cryptique:
     groupId: com.jofittech
     artifactId: cryptique
@@ -63,13 +67,14 @@ projects:
     developers:
     - id: JoFitTech
       name: Josef Lautner
-      email: jos.lautner24@heiblronn.dhbw.de
+      email: jos.lautner24@heilbronn.dhbw.de
     - id: 0ezzi
       name: Luis Schirmbeck
       email: luis.schirmbeck@gmail.com
     - id: KimReg
       name: Kim Reger
       email: kim@reger1.de
+    alldevmails: "Josef Lautner <jos.lautner24@heilbronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
@@ -85,6 +90,7 @@ projects:
     - id: celine250108
       name: Celine Hager
       email: hceline2501@gmail.com
+    alldevmails: "Christine Gundel <gundelc@gmail.com>, Tina Ranft <tina-ranft@web.de>, Celine Hager <hceline2501@gmail.com>"
   com.thomxs1.password-validator-main:
     groupId: com.thomxs1
     artifactId: password-validator-main
@@ -100,6 +106,7 @@ projects:
     - id: OliverOlah1
       name: Oliver Donat Olah
       email: oli.olah.24@heilbronn.dhbw.de
+    alldevmails: "Thomas Neumann <tho.neumann.24@heilbronn.dhbw.de>, Yannick Mottl <yan.mottl.24@heilbronn.dhbw.de>, Oliver Donat Olah <oli.olah.24@heilbronn.dhbw.de>"
   com.zipse.length-password-validator:
     groupId: com.zipse
     artifactId: length-password-validator
@@ -112,6 +119,7 @@ projects:
     - id: TypeWolf
       name: Luis Zipse
       email: lui.zipse.24@heilbronn.dhbw.de
+    alldevmails: "Daniel Schklar <dhbw@schklar.de>, Luis Zipse <lui.zipse.24@heilbronn.dhbw.de>"
   com.diepoe.securitease:
     groupId: com.diepoe
     artifactId: securitease
@@ -124,6 +132,7 @@ projects:
     - id: dmrmika
       name: Mikail Mert Demirel
       email: mik.demirel.24@heilbronn.dhbw.de
+    alldevmails: "Dietrich Poensgen <die.poensgen.24@heilbronn.dhbw.de>, Mikail Mert Demirel <mik.demirel.24@heilbronn.dhbw.de>"
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
@@ -139,6 +148,7 @@ projects:
     - id: Elias10115
       name: Elias Mögerle
       email: elias.moegerle@gmail.com
+    alldevmails: "Sören Baumann <soeren@bettercallsoeren.com>, Tim Schmelz <tim.schmelz.24@heilbronn.dhbw.de>, Elias Mögerle <elias.moegerle@gmail.com>"
   com.niklas3852.lefortknox:
     groupId: com.niklas3852
     artifactId: lefortknox
@@ -151,3 +161,4 @@ projects:
     - id: Raqhael
       name: Raphael Buller
       email: raphael.buller8@gmail.com
+    alldevmails: "Niklas Ulbrich <niklas-ulbrich@web.de>, Raphael Buller <raphael.buller8@gmail.com>"

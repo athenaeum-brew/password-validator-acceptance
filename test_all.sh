@@ -25,33 +25,58 @@ decorate_text() {
 mkdir -p "$TARGET_DIR"
 mkdir -p "$DOWNLOADED_DIR"
 
-# Step 1: Clean up the target directory
-echo "Cleaning up existing JARs in $TARGET_DIR..."
-rm -f "$TARGET_DIR/$GROUP_ID.$ARTIFACT_ID-"*.jar
+# Parse arguments
+PROJECT=""
+USE_CACHED=false
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -c|--cached)
+            USE_CACHED=true
+            shift
+            ;;
+        *)
+            PROJECT="$1"
+            shift
+            ;;
+    esac
+done
 
-# Step 2: Download password-validator.jar
-echo "Downloading $ARTIFACT_ID..."
-mvn dependency:copy \
-    -U \
-    -Dartifact="$GROUP_ID:$ARTIFACT_ID:$VERSION:jar" \
-    -DoutputDirectory="$TARGET_DIR" \
-    -Dmdep.prependGroupId=true \
-    -Dmdep.useBaseVersion=false \
-    -Dmdep.stripVersion=false
+# Step 1: Clean up the target directory unless using cached artifact
+if [ "$USE_CACHED" = false ]; then
+    echo "Cleaning up existing JARs in $TARGET_DIR..."
+    rm -f "$TARGET_DIR/$GROUP_ID.$ARTIFACT_ID-"*.jar
+fi
+
+# Step 2: Download password-validator.jar unless using cached artifact
+if [ "$USE_CACHED" = false ]; then
+    echo "Downloading $ARTIFACT_ID..."
+    mvn dependency:copy \
+        -U \
+        -Dartifact="$GROUP_ID:$ARTIFACT_ID:$VERSION:jar" \
+        -DoutputDirectory="$TARGET_DIR" \
+        -Dmdep.prependGroupId=true \
+        -Dmdep.useBaseVersion=false \
+        -Dmdep.stripVersion=false
+fi
 
 # Step 3: Locate the downloaded JAR
 DOWNLOADED_JAR=$(find "$TARGET_DIR" -name "$GROUP_ID.$ARTIFACT_ID-*.jar" | head -n 1)
 
 if [ -n "$DOWNLOADED_JAR" ]; then
-    echo "Downloaded JAR located at: $DOWNLOADED_JAR"
+    echo "Using JAR located at: $DOWNLOADED_JAR"
 else
     echo "Error: JAR not found in $TARGET_DIR. Exiting."
     exit 1
 fi
 
-# Step 4: Run the Tester with each student's JAR in the downloaded_packages directory
+# Step 4: Filter student JARs based on PROJECT argument if provided
 for STUDENT_JAR in "$DOWNLOADED_DIR"/*.jar; do
     if [[ -f "$STUDENT_JAR" ]]; then
+        # Check if PROJECT is provided and filter JARs
+        if [[ -n "$PROJECT" && "$STUDENT_JAR" != *"$PROJECT"* ]]; then
+            continue
+        fi
+
         echo -e "\n"
         basename="${STUDENT_JAR##*/}"  # Removes everything before the last '/'
         trimmed="${basename%.*}"       # Removes everything from the last '.' onward

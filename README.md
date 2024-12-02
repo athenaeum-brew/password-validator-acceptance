@@ -8,11 +8,11 @@
 5. run download_sources.py to download sources, either with git clone, or downloading zip artifact
 6. run multi-module.py to create a multi-module project with all packages as sub modules
 7. cd multi-module-project, then run mvn clean verify to generate aggregated javadoc
-8. cd target/site/apidocs, then run python -m http.server, then open browser at http://locahost:8000, inspect javadoc
+8. cd multi-module-project/target/site/apidocs, then run python -m http.server, then open browser at http://localhost:8000
 
 ## Criteria
 
-| Criterion                                         | Points |
+| Criterion                                        | Points |
 |--------------------------------------------------|--------|
 | - The JAR file containing the implementation is downloaded from the Athenaeum-Brew Maven repository and is successfully executed by the test program  | 3  |
 | - The validation criteria are outlined in a README file located at the root of the project.                                                           | 3  |
@@ -23,6 +23,8 @@
 | - Test coverage assessment.                                                                                                                           | 2  |
 | - Documentation quality assessment.                                                                                                                   | 2  |
 
+
+java -jar "/Users/christophe.thiebaud/github.com/athenaeum-brew/password-validator/target/password-validator-1.1.0-SNAPSHOT.jar" 
 
 
 

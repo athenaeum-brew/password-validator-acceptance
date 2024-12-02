@@ -26,16 +26,21 @@ public class YamlWriter {
                 try {
                         // Prepare the data structure for YAML
                         Map<String, Object> yamlData = Map.of(
-                                        "totalDevelopers", pomInfoByFile.values().stream()
+                                        "totalDevelopers",
+                                        pomInfoByFile.values().stream()
                                                         .mapToInt(info -> info.developers().size())
                                                         .sum(),
                                         "projects", prepareProjectsMap(pomInfoByFile));
 
                         // Configure YAMLFactory to suppress unnecessary quotes
                         YAMLFactory yamlFactory = new YAMLFactory()
-                                        .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES); // Suppress quotes when not
-                                                                                        // needed
+                                        .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES) // Suppress quotes when not
+                                                                                       // needed
+                                        .disable(YAMLGenerator.Feature.SPLIT_LINES); // Disable line wrapping
+
                         ObjectMapper yamlMapper = new ObjectMapper(yamlFactory);
+                        yamlMapper.setDefaultPropertyInclusion(
+                                        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
 
                         // Write YAML data to the specified output file
                         yamlMapper.writeValue(new File(outputPath), yamlData);
@@ -67,6 +72,8 @@ public class YamlWriter {
                                                         put2map(info, "scmUrl", "N/A", projectMap);
                                                         projectMap.put("developers",
                                                                         prepareDevelopersList(info.developers()));
+                                                        projectMap.put("alldevmails", info.alldevmails());
+
                                                         return projectMap;
                                                 }));
         }

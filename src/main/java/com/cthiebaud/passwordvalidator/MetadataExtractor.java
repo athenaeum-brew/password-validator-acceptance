@@ -5,8 +5,10 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.File;
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class MetadataExtractor {
 
@@ -47,6 +49,7 @@ public class MetadataExtractor {
                 String scmUrl = parsePOMForScmUrl(pomFile);
                 List<Developer> developers = parsePOMForDevelopers(pomFile);
 
+                // Generate the alldevmails string
                 // Check for duplicate developers across projects
                 for (Developer developer : developers) {
                     String uniqueKey = developer.id() != null ? developer.id() : developer.email();
@@ -62,7 +65,8 @@ public class MetadataExtractor {
                 }
 
                 // Store the POM information
-                pomInfoByFile.put(projectKey, new PomInfo(artifactId, groupId, version, developers, scmUrl));
+                pomInfoByFile.put(projectKey,
+                        new PomInfo(artifactId, groupId, version, developers, scmUrl));
             } catch (Exception e) {
                 System.out.println("Error processing file: " + pomFile.getName());
                 e.printStackTrace();
@@ -205,5 +209,12 @@ public class MetadataExtractor {
     // Record for storing POM information
     public record PomInfo(String artifactId, String groupId, String version, List<Developer> developers,
             String scmUrl) {
+
+        public String alldevmails() {
+            return developers.stream()
+                    .map(dev -> String.format("%s <%s>", dev.name(), dev.email()))
+                    .filter(mail -> mail != null) // Ensure no null values are included
+                    .collect(Collectors.joining(", "));
+        }
     }
 }
