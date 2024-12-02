@@ -14,14 +14,14 @@
 
 | Criterion                                        | Points |
 |--------------------------------------------------|--------|
-| - The JAR file containing the implementation is downloaded from the Athenaeum-Brew Maven repository and is successfully executed by the test program  | 3  |
-| - The validation criteria are outlined in a README file located at the root of the project.                                                           | 3  |
-| - The source code includes Javadoc comments.                                                                                                          | 3  |
-| - The implementation is accompanied by unit tests.                                                                                                    | 3  |
-| - Usability assessment.                                                                                                                               | 2  |
-| - Code quality assessment.                                                                                                                            | 2  |
-| - Test coverage assessment.                                                                                                                           | 2  |
-| - Documentation quality assessment.                                                                                                                   | 2  |
+| - The JAR file containing the implementation is downloaded from the Athenaeum-Brew Maven repository and is successfully executed by the test program  | 3 |
+| - The validation criteria are outlined in a README file located at the root of the project                                                            | 3 |
+| - The source code includes Javadoc comments                                                                                                           | 3 |
+| - The implementation is accompanied by unit tests                                                                                                     | 3 |
+| - Usability assessment                                                                                                                                | 2 |
+| - Code quality assessment                                                                                                                             | 2 |
+| - Test coverage assessment                                                                                                                            | 2 |
+| - Documentation quality assessment                                                                                                                    | 2 |
 
 
 java -jar "/Users/christophe.thiebaud/github.com/athenaeum-brew/password-validator/target/password-validator-1.1.0-SNAPSHOT.jar" 
