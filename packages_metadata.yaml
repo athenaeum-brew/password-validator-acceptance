@@ -4,7 +4,7 @@ projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
     artifactId: password-validator-impl
-    version: 1.1.0-20241201.152743-1
+    version: 1.1.0-20241202.105207-2
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
     - id: cthiebaud
@@ -67,14 +67,14 @@ projects:
     developers:
     - id: JoFitTech
       name: Josef Lautner
-      email: jos.lautner24@heilbronn.dhbw.de
+      email: jos.lautner24@heiblronn.dhbw.de
     - id: 0ezzi
       name: Luis Schirmbeck
       email: luis.schirmbeck@gmail.com
     - id: KimReg
       name: Kim Reger
       email: kim@reger1.de
-    alldevmails: "Josef Lautner <jos.lautner24@heilbronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
+    alldevmails: "Josef Lautner <jos.lautner24@heiblronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
@@ -120,19 +120,6 @@ projects:
       name: Luis Zipse
       email: lui.zipse.24@heilbronn.dhbw.de
     alldevmails: "Daniel Schklar <dhbw@schklar.de>, Luis Zipse <lui.zipse.24@heilbronn.dhbw.de>"
-  com.diepoe.securitease:
-    groupId: com.diepoe
-    artifactId: securitease
-    version: 1.0.2-PRERELEASE
-    scmUrl: https://github.com/diepoe/SecuriTease
-    developers:
-    - id: diepoe
-      name: Dietrich Poensgen
-      email: die.poensgen.24@heilbronn.dhbw.de
-    - id: dmrmika
-      name: Mikail Mert Demirel
-      email: mik.demirel.24@heilbronn.dhbw.de
-    alldevmails: "Dietrich Poensgen <die.poensgen.24@heilbronn.dhbw.de>, Mikail Mert Demirel <mik.demirel.24@heilbronn.dhbw.de>"
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
@@ -149,6 +136,19 @@ projects:
       name: Elias Mögerle
       email: elias.moegerle@gmail.com
     alldevmails: "Sören Baumann <soeren@bettercallsoeren.com>, Tim Schmelz <tim.schmelz.24@heilbronn.dhbw.de>, Elias Mögerle <elias.moegerle@gmail.com>"
+  com.diepoe.securitease:
+    groupId: com.diepoe
+    artifactId: securitease
+    version: 1.0.3-PRERELEASE
+    scmUrl: https://github.com/diepoe/SecuriTease
+    developers:
+    - id: diepoe
+      name: Dietrich Poensgen
+      email: die.poensgen.24@heilbronn.dhbw.de
+    - id: dmrmika
+      name: Mikail Mert Demirel
+      email: mik.demirel.24@heilbronn.dhbw.de
+    alldevmails: "Dietrich Poensgen <die.poensgen.24@heilbronn.dhbw.de>, Mikail Mert Demirel <mik.demirel.24@heilbronn.dhbw.de>"
   com.niklas3852.lefortknox:
     groupId: com.niklas3852
     artifactId: lefortknox
