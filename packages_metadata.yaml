@@ -1,5 +1,4 @@
 ---
-totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
@@ -62,19 +61,19 @@ projects:
   com.jofittech.cryptique:
     groupId: com.jofittech
     artifactId: cryptique
-    version: 1.2-20241130.143532-1
+    version: 1.4-20241202.195731-1
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
     - id: JoFitTech
       name: Josef Lautner
-      email: jos.lautner24@heiblronn.dhbw.de
+      email: jos.lautner24@heilbronn.dhbw.de
     - id: 0ezzi
       name: Luis Schirmbeck
       email: luis.schirmbeck@gmail.com
     - id: KimReg
       name: Kim Reger
       email: kim@reger1.de
-    alldevmails: "Josef Lautner <jos.lautner24@heiblronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
+    alldevmails: "Josef Lautner <jos.lautner24@heilbronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
@@ -162,3 +161,4 @@ projects:
       name: Raphael Buller
       email: raphael.buller8@gmail.com
     alldevmails: "Niklas Ulbrich <niklas-ulbrich@web.de>, Raphael Buller <raphael.buller8@gmail.com>"
+totalDevelopers: 28
