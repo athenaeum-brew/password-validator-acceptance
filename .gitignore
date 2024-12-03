@@ -28,3 +28,5 @@ multi-module-project/*/
 !multi-module-project/pom.xml
 
 reviews
+
+src/main/java/Main2.java
