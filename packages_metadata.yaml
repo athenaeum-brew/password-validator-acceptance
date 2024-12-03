@@ -4,7 +4,7 @@ projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
     artifactId: password-validator-impl
-    version: 1.1.0-20241202.222518-3
+    version: 1.1.0-20241202.224201-4
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
     - id: cthiebaud
@@ -123,7 +123,7 @@ projects:
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
-    version: 1.10.2-RELEASE
+    version: 1.11.1-RELEASE
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
     - id: baumann-bechtle
@@ -139,7 +139,7 @@ projects:
   com.diepoe.securitease:
     groupId: com.diepoe
     artifactId: securitease
-    version: 1.0.3-PRERELEASE
+    version: 1.1.0-RELEASE
     scmUrl: https://github.com/diepoe/SecuriTease
     developers:
     - id: diepoe

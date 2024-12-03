@@ -4,8 +4,8 @@ com.timo:password-validator:1.0.1-SNAPSHOT
 com.niklas3852:lefortknox:2.0-SNAPSHOT
 com.zipse:length-password-validator:1.2-SNAPSHOT
 com.jofittech:cryptique:1.4-SNAPSHOT
-com.diepoe:securitease:1.0.3-PRERELEASE
-com.timeliassoeren:password-checker:1.10.2-RELEASE
+com.diepoe:securitease:1.1.0-RELEASE
+com.timeliassoeren:password-checker:1.11.1-RELEASE
 com.kevalbra:sonatesecure:1.0-SNAPSHOT
 com.thomxs1:password-validator-main:1.0.0-SNAPSHOT
 org.NBITPROJECT:bouncer:1.0-SNAPSHOT
