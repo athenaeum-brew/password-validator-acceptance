@@ -25,7 +25,7 @@ public class MetadataExtractor {
         }
 
         // Map to store developers, SCM URL, and version grouped by their artifact ID
-        Map<String, PomInfo> pomInfoByFile = new LinkedHashMap<>();
+        Map<String, PomInfo> pomInfoByFile = new TreeMap<>();
 
         // Map to track developers across projects
         Map<String, String> developerToProjectMap = new HashMap<>();

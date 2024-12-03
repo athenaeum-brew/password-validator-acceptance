@@ -62,19 +62,19 @@ projects:
   com.jofittech.cryptique:
     groupId: com.jofittech
     artifactId: cryptique
-    version: 1.4-20241202.195731-1
+    version: 1.5-20241203.140151-1
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
     - id: JoFitTech
       name: Josef Lautner
-      email: jos.lautner24@heilbronn.dhbw.de
+      email: jos.lautner.24@heilbronn.dhbw.de
     - id: 0ezzi
       name: Luis Schirmbeck
       email: luis.schirmbeck@gmail.com
     - id: KimReg
       name: Kim Reger
       email: kim@reger1.de
-    alldevmails: "Josef Lautner <jos.lautner24@heilbronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
+    alldevmails: "Josef Lautner <jos.lautner.24@heilbronn.dhbw.de>, Luis Schirmbeck <luis.schirmbeck@gmail.com>, Kim Reger <kim@reger1.de>"
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
@@ -107,19 +107,19 @@ projects:
       name: Oliver Donat Olah
       email: oli.olah.24@heilbronn.dhbw.de
     alldevmails: "Thomas Neumann <tho.neumann.24@heilbronn.dhbw.de>, Yannick Mottl <yan.mottl.24@heilbronn.dhbw.de>, Oliver Donat Olah <oli.olah.24@heilbronn.dhbw.de>"
-  com.zipse.length-password-validator:
-    groupId: com.zipse
-    artifactId: length-password-validator
-    version: 1.2-20241125.150343-1
-    scmUrl: https://github.com/dschklar/idontknow
+  com.diepoe.securitease:
+    groupId: com.diepoe
+    artifactId: securitease
+    version: 1.1.1-RELEASE
+    scmUrl: https://github.com/diepoe/SecuriTease
     developers:
-    - id: dschklar
-      name: Daniel Schklar
-      email: dhbw@schklar.de
-    - id: TypeWolf
-      name: Luis Zipse
-      email: lui.zipse.24@heilbronn.dhbw.de
-    alldevmails: "Daniel Schklar <dhbw@schklar.de>, Luis Zipse <lui.zipse.24@heilbronn.dhbw.de>"
+    - id: diepoe
+      name: Dietrich Poensgen
+      email: die.poensgen.24@heilbronn.dhbw.de
+    - id: dmrmika
+      name: Mikail Mert Demirel
+      email: mik.demirel.24@heilbronn.dhbw.de
+    alldevmails: "Dietrich Poensgen <die.poensgen.24@heilbronn.dhbw.de>, Mikail Mert Demirel <mik.demirel.24@heilbronn.dhbw.de>"
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
@@ -136,19 +136,19 @@ projects:
       name: Elias Mögerle
       email: elias.moegerle@gmail.com
     alldevmails: "Sören Baumann <soeren@bettercallsoeren.com>, Tim Schmelz <tim.schmelz.24@heilbronn.dhbw.de>, Elias Mögerle <elias.moegerle@gmail.com>"
-  com.diepoe.securitease:
-    groupId: com.diepoe
-    artifactId: securitease
-    version: 1.1.0-RELEASE
-    scmUrl: https://github.com/diepoe/SecuriTease
+  com.zipse.length-password-validator:
+    groupId: com.zipse
+    artifactId: length-password-validator
+    version: 1.2-20241125.150343-1
+    scmUrl: https://github.com/dschklar/idontknow
     developers:
-    - id: diepoe
-      name: Dietrich Poensgen
-      email: die.poensgen.24@heilbronn.dhbw.de
-    - id: dmrmika
-      name: Mikail Mert Demirel
-      email: mik.demirel.24@heilbronn.dhbw.de
-    alldevmails: "Dietrich Poensgen <die.poensgen.24@heilbronn.dhbw.de>, Mikail Mert Demirel <mik.demirel.24@heilbronn.dhbw.de>"
+    - id: dschklar
+      name: Daniel Schklar
+      email: dhbw@schklar.de
+    - id: TypeWolf
+      name: Luis Zipse
+      email: lui.zipse.24@heilbronn.dhbw.de
+    alldevmails: "Daniel Schklar <dhbw@schklar.de>, Luis Zipse <lui.zipse.24@heilbronn.dhbw.de>"
   com.niklas3852.lefortknox:
     groupId: com.niklas3852
     artifactId: lefortknox
