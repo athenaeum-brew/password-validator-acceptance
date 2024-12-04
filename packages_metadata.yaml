@@ -1,5 +1,4 @@
 ---
-totalDevelopers: 28
 projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
@@ -62,7 +61,7 @@ projects:
   com.jofittech.cryptique:
     groupId: com.jofittech
     artifactId: cryptique
-    version: 1.5-20241203.140151-1
+    version: 1.6-20241204.111547-1
     scmUrl: https://github.com/JoFitTech/Cryptique
     developers:
     - id: JoFitTech
@@ -162,3 +161,4 @@ projects:
       name: Raphael Buller
       email: raphael.buller8@gmail.com
     alldevmails: "Niklas Ulbrich <niklas-ulbrich@web.de>, Raphael Buller <raphael.buller8@gmail.com>"
+totalDevelopers: 28
