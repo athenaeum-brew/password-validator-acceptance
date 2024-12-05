@@ -5,3 +5,9 @@ mvn exec:java -Dexec.mainClass=com.cthiebaud.passwordvalidator.GitHubPackagesLis
 ./clear_maven_cache.sh
 ./download_packages.sh
 mvn exec:java -Dexec.mainClass=com.cthiebaud.passwordvalidator.MetadataExtractor
+./download_sources.py 
+./multi-module.py
+cd multi-module-project
+mvn clean verify
+cd target/site/apidocs 
+python -m http.server

@@ -28,7 +28,19 @@ for project_name, project_info in project_data["projects"].items():
     if scm_url and scm_url != "N/A":
         # Check if the directory already exists
         if os.path.exists(project_dir):
-            print(f"Directory for {project_name} already exists. Skipping clone.")
+            print(f"Directory for {project_name} already exists. Resetting and pulling latest changes...")
+            try:
+                # Navigate to the project directory and reset + pull
+                subprocess.run(
+                    ["git", "-C", project_dir, "reset", "--hard", "HEAD"],
+                    check=True,
+                )
+                subprocess.run(
+                    ["git", "-C", project_dir, "pull"],
+                    check=True,
+                )
+            except subprocess.CalledProcessError as e:
+                print(f"Failed to reset or pull for {project_name}: {e}")
         else:
             # Clone the repository
             try:
@@ -57,4 +69,3 @@ for project_name, project_info in project_data["projects"].items():
             f"  -DoutputDirectory={destination_dir}"
         )
         print(f"No valid scmUrl for {project_name}. Use this Maven command:\n{maven_command}")
-

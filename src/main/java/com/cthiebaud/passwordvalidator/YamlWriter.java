@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class YamlWriter {
 
@@ -24,13 +25,13 @@ public class YamlWriter {
          */
         public static void writePomInfoToYamlFile(Map<String, PomInfo> pomInfoByFile, String outputPath) {
                 try {
-                        // Prepare the data structure for YAML
-                        Map<String, Object> yamlData = Map.of(
+                        // Prepare the data structure for YAML with an ordered map
+                        Map<String, Object> yamlData = new TreeMap<>(Map.of(
                                         "totalDevelopers",
                                         pomInfoByFile.values().stream()
                                                         .mapToInt(info -> info.developers().size())
                                                         .sum(),
-                                        "projects", prepareProjectsMap(pomInfoByFile));
+                                        "projects", prepareProjectsMap(pomInfoByFile)));
 
                         // Configure YAMLFactory to suppress unnecessary quotes
                         YAMLFactory yamlFactory = new YAMLFactory()
