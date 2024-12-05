@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 PARENT_POM="multi-module-project/pom.xml"
 MODULES_DIR="downloaded_sources"

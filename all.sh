@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 mvn clean package
 mvn exec:java -Dexec.mainClass=com.cthiebaud.passwordvalidator.GitHubPackagesLister
@@ -7,7 +7,6 @@ mvn exec:java -Dexec.mainClass=com.cthiebaud.passwordvalidator.GitHubPackagesLis
 mvn exec:java -Dexec.mainClass=com.cthiebaud.passwordvalidator.MetadataExtractor
 ./download_sources.py 
 ./multi-module.py
+./multi-module_patch_pom_file.py
 cd multi-module-project
 mvn clean verify
-cd target/site/apidocs 
-python -m http.server

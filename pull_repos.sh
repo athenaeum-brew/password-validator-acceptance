@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Save the initial directory
 initial_dir=$(pwd)

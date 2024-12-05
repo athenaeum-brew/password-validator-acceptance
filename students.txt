@@ -13,7 +13,6 @@ X  Josef Lautner
 X  Elias Mögerle            
 X  Yannick Mottl            
 X  Niklas Mumm              
-c  Adi Mustajbegovi         
 X  Thomas Neumann           
 X  Dietrich Poensgen        
 X  Tina Ranft               
@@ -29,6 +28,7 @@ Willi Baierle	    / Willi782
 Olivér Oláh	        / OliverOlah1    
 Sinan Oturucu	    / SinanOtc
 Marios Zoumpoulakis / shiro-edoc
+Adi Mustajbegovi    / aaiimm
 
 Ioannis Mouratidis	
 Theocharis Xenopoulos

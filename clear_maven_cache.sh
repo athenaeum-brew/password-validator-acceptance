@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Path to the packages.txt file
 PACKAGE_FILE="packages.txt"

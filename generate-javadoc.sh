@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 BASE_DIR="downloaded_sources"
 OUTPUT_DIR="merged-docs"
