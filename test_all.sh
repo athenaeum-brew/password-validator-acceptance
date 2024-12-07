@@ -9,7 +9,7 @@ TARGET_DIR="target"
 DOWNLOADED_DIR="downloaded_packages"
 GROUP_ID="com.cthiebaud"
 ARTIFACT_ID="password-validator"
-VERSION="1.1.0-SNAPSHOT"
+VERSION="1.1.1-SNAPSHOT"
 
 # Function to decorate a string with a dynamic border
 decorate_text() {
