@@ -40,10 +40,10 @@
         </plugins>
     </build>
     <modules>
-        <!--module>com.zipse.length-password-validator</module-->
+        <module>com.zipse.length-password-validator</module>
         <module>com.kevalbra.sonatesecure</module>
         <module>com.timeliassoeren.password-checker</module>
-        <module>com.thomxs1.password-validator-main</module>
+        <module>com.thomxs1.password-validator-main/password-validator-main</module>
         <module>com.jofittech.cryptique</module>
         <module>com.diepoe.securitease</module>
         <module>com.cthiebaud.password-validator-impl</module>

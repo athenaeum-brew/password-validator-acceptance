@@ -48,14 +48,12 @@ def patch_pom_file(parent_pom):
         print(f"No <modules> section found in {parent_pom}. Exiting.")
         return
 
-    # Find and comment out the specified module
+    # Find and comment out the specified module multi-module-project/
     for module in modules_elem.findall("module", ns):
-        if module.text == "com.zipse.length-password-validator":
-            print(f"Found module to comment out: {module.text}")
-            # Replace module with a comment
-            comment = ET.Comment(f"module>{module.text}</module")
-            modules_elem.insert(list(modules_elem).index(module), comment)
-            modules_elem.remove(module)
+        if module.text == "com.thomxs1.password-validator-main":
+            print(f"Found module to update: {module.text}")
+            # Update the module text with the new value
+            module.text = f"{module.text}/password-validator-main"
             break
     else:
         print(f"Module 'com.zipse.length-password-validator' not found. Skipping patch.")

@@ -45,7 +45,7 @@ projects:
   com.timo.password-validator:
     groupId: com.timo
     artifactId: password-validator
-    version: 1.0.1-20241125.121638-1
+    version: 1.0.4-20241208.131348-1
     scmUrl: https://github.com/JunoGT/password-validator
     developers:
     - id: JunoGT
@@ -122,7 +122,7 @@ projects:
   com.timeliassoeren.password-checker:
     groupId: com.timeliassoeren
     artifactId: password-checker
-    version: 1.11.1-RELEASE
+    version: 1.11.2-RELEASE
     scmUrl: https://github.com/2grueneund1schwarzer/thiebaud1
     developers:
     - id: baumann-bechtle
@@ -138,8 +138,8 @@ projects:
   com.zipse.length-password-validator:
     groupId: com.zipse
     artifactId: length-password-validator
-    version: 1.3-20241206.120507-1
-    scmUrl: https://github.com/athenaeum-brew/maven-repo/packages/2319203
+    version: 1.4.0
+    scmUrl: https://github.com/TypeWolf/PasswordValidator
     developers:
     - id: dschklar
       name: Daniel Schklar
