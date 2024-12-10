@@ -3,7 +3,7 @@ projects:
   com.cthiebaud.password-validator-impl:
     groupId: com.cthiebaud
     artifactId: password-validator-impl
-    version: 1.1.0-20241202.224201-4
+    version: 1.1.1-20241208.180602-1
     scmUrl: https://github.com/athenaeum-brew/password-validator-impl
     developers:
     - id: cthiebaud
@@ -29,7 +29,7 @@ projects:
   org.NBITPROJECT.bouncer:
     groupId: org.NBITPROJECT
     artifactId: bouncer
-    version: 1.0-20241126.090609-2
+    version: 1.0-20241209.215552-3
     scmUrl: https://github.com/NB-IT-Project/Bouncer
     developers:
     - id: NB-IT-Project
@@ -77,7 +77,7 @@ projects:
   chrisceltin.password_validator:
     groupId: chrisceltin
     artifactId: password_validator
-    version: 1.0-20241125.165811-5
+    version: 1.0-20241208.190036-6
     scmUrl: https://github.com/ITine-Tech/password_validator
     developers:
     - id: ITine_Tech
@@ -138,7 +138,7 @@ projects:
   com.zipse.length-password-validator:
     groupId: com.zipse
     artifactId: length-password-validator
-    version: 1.4.0
+    version: 1.4.1-20241209.154557-1
     scmUrl: https://github.com/TypeWolf/PasswordValidator
     developers:
     - id: dschklar
@@ -161,4 +161,17 @@ projects:
       name: Raphael Buller
       email: raphael.buller8@gmail.com
     alldevmails: "Niklas Ulbrich <niklas-ulbrich@web.de>, Raphael Buller <raphael.buller8@gmail.com>"
-totalDevelopers: 28
+  com.sinanotc.passwordvalidator:
+    groupId: com.sinanotc
+    artifactId: passwordvalidator
+    version: 1.0-20241209.143224-1
+    scmUrl: https://github.com/SinanOtc/PremiumPasswordValidator
+    developers:
+    - id: sinanotc
+      name: Sinan Oturucu
+      email: sin.oturucu.24@heilbronn.dhbw.de
+    - id: N/A
+      name: Theocharis Xenopoulos
+      email: the.xenopoulos.24@heilbronn.dhbw.de
+    alldevmails: "Sinan Oturucu <sin.oturucu.24@heilbronn.dhbw.de>, Theocharis Xenopoulos <the.xenopoulos.24@heilbronn.dhbw.de>"
+totalDevelopers: 30

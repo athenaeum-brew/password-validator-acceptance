@@ -40,6 +40,7 @@
         </plugins>
     </build>
     <modules>
+        <module>com.sinanotc.passwordvalidator</module>
         <module>com.zipse.length-password-validator</module>
         <module>com.kevalbra.sonatesecure</module>
         <module>com.timeliassoeren.password-checker</module>

@@ -2,10 +2,11 @@ com.cthiebaud:password-validator-impl:1.1.1-SNAPSHOT
 chrisceltin:password_validator:1.0-SNAPSHOT
 com.timo:password-validator:1.0.4-SNAPSHOT
 com.niklas3852:lefortknox:2.0-SNAPSHOT
-com.zipse:length-password-validator:1.4.0
+com.zipse:length-password-validator:1.4.1-SNAPSHOT
 com.jofittech:cryptique:1.6-SNAPSHOT
 com.diepoe:securitease:1.1.1-RELEASE
 com.timeliassoeren:password-checker:1.11.2-RELEASE
 com.kevalbra:sonatesecure:1.0-SNAPSHOT
 com.thomxs1:password-validator-main:1.0.0-SNAPSHOT
 org.NBITPROJECT:bouncer:1.0-SNAPSHOT
+com.sinanotc:passwordvalidator:1.0-SNAPSHOT
