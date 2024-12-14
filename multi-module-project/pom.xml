@@ -40,17 +40,17 @@
         </plugins>
     </build>
     <modules>
-        <module>com.sinanotc.passwordvalidator</module>
         <module>com.zipse.length-password-validator</module>
         <module>com.kevalbra.sonatesecure</module>
+        <module>com.niklas3852.lefortknox</module>
         <module>com.timeliassoeren.password-checker</module>
         <module>com.thomxs1.password-validator-main/password-validator-main</module>
         <module>com.jofittech.cryptique</module>
         <module>com.diepoe.securitease</module>
         <module>com.cthiebaud.password-validator-impl</module>
-        <module>com.timo.password-validator</module>
         <module>chrisceltin.password_validator</module>
-        <module>lefortknox-2.0-SNAPSHOT-project</module>
         <module>org.NBITPROJECT.bouncer</module>
+        <!--module>com.sinanotc.passwordvalidator</module-->
+        <!--module>com.timo.password-validator</module-->
     </modules>
 </project>

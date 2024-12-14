@@ -3,6 +3,8 @@
 import os
 import subprocess
 import yaml
+import zipfile
+import shutil
 
 # File containing the metadata
 metadata_file = "packages_metadata.yaml"
@@ -59,13 +61,51 @@ for project_name, project_info in project_data["projects"].items():
         
         # Generate Maven command for projects without a valid scmUrl
         artifact_identifier = f"{group_id}:{artifact_id}:{version}"
-        maven_command = (
-            f"mvn dependency:copy \\\n"
-            f"  -U \\\n"
-            f"  -Dartifact={artifact_identifier}:zip:project-zip \\\n"
-            f"  -Dmdep.prependGroupId=true \\\n"
-            f"  -Dmdep.useBaseVersion=false \\\n"
-            f"  -Drepositories=\"github-repo::default::{maven_repo_url}\" \\\n"
-            f"  -DoutputDirectory={destination_dir}"
-        )
-        print(f"No valid scmUrl for {project_name}. Use this Maven command:\n{maven_command}")
+        maven_command = [
+            "mvn", "dependency:copy",
+            "-U",
+            f"-Dartifact={artifact_identifier}:zip:project-zip",
+            "-Dmdep.prependGroupId=true",
+            "-Dmdep.useBaseVersion=false",
+            f"-Drepositories=github-repo::default::{maven_repo_url}",
+            f"-DoutputDirectory={destination_dir}"
+        ]
+
+        print(f"No valid scmUrl for {project_name}. Running Maven command...")
+        try:
+            subprocess.run(maven_command, check=True)
+            
+            # Locate the downloaded ZIP file
+            zip_filename = os.path.join(destination_dir, f"{group_id}.{artifact_id}-{version}-project-zip.zip")
+
+            if os.path.exists(zip_filename):
+                print(f"Decompressing {zip_filename}...")
+                with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
+                    temp_extract_dir = os.path.join(destination_dir, f"{project_name}_temp")
+                    zip_ref.extractall(temp_extract_dir)
+
+                    # Check if the extracted content contains a single directory
+                    extracted_items = os.listdir(temp_extract_dir)
+                    if len(extracted_items) == 1 and os.path.isdir(os.path.join(temp_extract_dir, extracted_items[0])):
+                        inner_dir = os.path.join(temp_extract_dir, extracted_items[0])
+                        for item in os.listdir(inner_dir):
+                            src_path = os.path.join(inner_dir, item)
+                            dest_path = os.path.join(destination_dir, project_name, item)
+                            shutil.move(src_path, dest_path)
+                    else:
+                        for item in extracted_items:
+                            src_path = os.path.join(temp_extract_dir, item)
+                            dest_path = os.path.join(destination_dir, project_name, item)
+                            shutil.move(src_path, dest_path)
+
+                    # Remove the temporary directory
+                    shutil.rmtree(temp_extract_dir)
+
+                # Delete the ZIP file after extraction
+                os.remove(zip_filename)
+                print(f"Deleted ZIP file {zip_filename}")
+            else:
+                print(f"Expected ZIP file not found: {zip_filename}")
+
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to run Maven command for {project_name}: {e}")

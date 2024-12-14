@@ -26,7 +26,7 @@ def prettify_xml(tree):
 
 def patch_pom_file(parent_pom):
     """
-    Patch the parent POM file by commenting out a specific module.
+    Patch the parent POM file by updating or commenting out specific modules.
     """
     print(f"Patching {parent_pom}...")
 
@@ -48,15 +48,23 @@ def patch_pom_file(parent_pom):
         print(f"No <modules> section found in {parent_pom}. Exiting.")
         return
 
-    # Find and comment out the specified module multi-module-project/
-    for module in modules_elem.findall("module", ns):
+    # Update or comment out specific modules
+    for module in list(modules_elem):  # Use list to safely modify while iterating
         if module.text == "com.thomxs1.password-validator-main":
             print(f"Found module to update: {module.text}")
-            # Update the module text with the new value
             module.text = f"{module.text}/password-validator-main"
-            break
-    else:
-        print(f"Module 'com.zipse.length-password-validator' not found. Skipping patch.")
+        elif module.text == "com.sinanotc.passwordvalidator":
+            print(f"Found module to comment out: {module.text}")
+            # Replace the module with a comment
+            comment = ET.Comment(f"module>{module.text}</module")
+            modules_elem.remove(module)
+            modules_elem.append(comment)
+        elif module.text == "com.timo.password-validator":
+            print(f"Found module to comment out: {module.text}")
+            # Replace the module with a comment
+            comment = ET.Comment(f"module>{module.text}</module")
+            modules_elem.remove(module)
+            modules_elem.append(comment)
 
     # Write the modified XML back to the file
     with open(parent_pom, "w", encoding="utf-8") as f:
